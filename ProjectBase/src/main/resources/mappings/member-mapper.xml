@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 맵퍼파일 생성 후 반드시 sql-map-config.xml 파일에 mapper 등록해줘야 함 -->
+<mapper namespace="memberMapper">
+	<resultMap type="com.spring.biz.vo.MemberVO" id="member">
+		<result column="MEMBER_ID"    property="memberId"/>
+		<result column="MEMBER_	NAME"    property="memberName"/>
+		<result column="MEMBER_PW"    property="memberPw"/>
+		<result column="MEMBER_GENDER"    property="memberGender"/>
+		<result column="MEMBER_AGE"    property="memberAge"/>
+		<result column="MEMBER_ADDR"    property="memberAddr"/>
+		<result column="MEMBER_TEL"    property="memberTel"/>
+		<result column="MEMBER_TEL2"    property="memberTel2"/>
+		<result column="JOIN_DATE"    property="joinDate"/>
+		<result column="DEL_YN"    property="delYn"/>
+	</resultMap>
+	
+	<insert id="insertMember">
+		INSERT MEMBER_INFO INTO (
+			MEMBER_ID
+			, MEMBER_NAME
+			, MEMBER_PW
+			, MEMBER_GENDER
+			, MEMBER_AGE
+			, MEMBER_ADDR
+			, MEMBER_TEL
+			, MEMBER_TEL2
+			, JOIN_DATE
+			, DEL_YN
+		)
+		VALUES (
+			#{memberId}
+			, #{memberName}
+			, #{memberPw}
+			, #{memberGender}
+			, #{memberAge}
+			, #{memberAddr}
+			, #{memberTel}
+			, #{memberTel2}
+			, #{joinDate}
+			, #{delYn}
+		)
+	</insert>	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
