@@ -27,8 +27,6 @@
 			, MEMBER_ADDR
 			, MEMBER_TEL
 			, MEMBER_TEL2
-			, JOIN_DATE
-			, DEL_YN
 		)
 		VALUES (
 			#{memberId}
@@ -39,8 +37,6 @@
 			, #{memberAddr}
 			, #{memberTel}
 			, #{memberTel2}
-			, #{joinDate}
-			, #{delYn}
 		)
 	</insert>	
 </mapper>
