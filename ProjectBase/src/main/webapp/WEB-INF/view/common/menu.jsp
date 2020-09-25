@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-메뉴화면
+메뉴입니다
 </body>
 </html>
