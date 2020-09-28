@@ -5,7 +5,7 @@ public class MemberVO {
 	private String memberName;
 	private String memberPw;
 	private String memberGender;
-	private int memberAge;
+	private String memberBirthday;
 	private String memberAddr;
 	private String memberTel;
 	private String memberTel2;
@@ -36,11 +36,11 @@ public class MemberVO {
 	public void setMemberGender(String memberGender) {
 		this.memberGender = memberGender;
 	}
-	public int getMemberAge() {
-		return memberAge;
+	public String getMemberBirthday() {
+		return memberBirthday;
 	}
-	public void setMemberAge(int memberAge) {
-		this.memberAge = memberAge;
+	public void setMemberBirthday(String memberBirthday) {
+		this.memberBirthday = memberBirthday;
 	}
 	public String getMemberAddr() {
 		return memberAddr;
@@ -76,7 +76,7 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [memberId=" + memberId + ", memberName=" + memberName + ", memberPw=" + memberPw
-				+ ", memberGender=" + memberGender + ", memberAge=" + memberAge + ", memberAddr=" + memberAddr
+				+ ", memberGender=" + memberGender + ", memberBirthday=" + memberBirthday + ", memberAddr=" + memberAddr
 				+ ", memberTel=" + memberTel + ", memberTel2=" + memberTel2 + ", joinDate=" + joinDate + ", delYn="
 				+ delYn + "]";
 	}

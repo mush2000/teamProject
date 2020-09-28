@@ -9,7 +9,7 @@
 		<result column="MEMBER_	NAME"    property="memberName"/>
 		<result column="MEMBER_PW"    property="memberPw"/>
 		<result column="MEMBER_GENDER"    property="memberGender"/>
-		<result column="MEMBER_AGE"    property="memberAge"/>
+		<result column="MEMBER_BIRTHDAY"    property="memberBirthday"/>
 		<result column="MEMBER_ADDR"    property="memberAddr"/>
 		<result column="MEMBER_TEL"    property="memberTel"/>
 		<result column="MEMBER_TEL2"    property="memberTel2"/>
@@ -23,7 +23,7 @@
 			, MEMBER_NAME
 			, MEMBER_PW
 			, MEMBER_GENDER
-			, MEMBER_AGE
+			, MEMBER_BIRTHDAY
 			, MEMBER_ADDR
 			, MEMBER_TEL
 			, MEMBER_TEL2
@@ -33,7 +33,7 @@
 			, #{memberName}
 			, #{memberPw}
 			, #{memberGender}
-			, #{memberAge}
+			, #{memberBirthday}
 			, #{memberAddr}
 			, #{memberTel}
 			, #{memberTel2}

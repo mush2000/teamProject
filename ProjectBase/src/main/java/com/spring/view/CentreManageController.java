@@ -14,7 +14,7 @@ public class CentreManageController {
 	@Resource(name = "memberService")
 	MemberService memberService;
 	
-	@RequestMapping(value = "/joinMemberPage.do")
+	@RequestMapping(value = "/joinPage.do")
 	public String joinMember(MemberVO memberVO, Model model) {
 		return "member/joinMember";
 	}
@@ -23,6 +23,11 @@ public class CentreManageController {
 	public String insertMember(MemberVO memberVO, Model model) {
 		memberService.insertMember(memberVO);
 		return "redirect:main.do";
+	}
+	
+	@RequestMapping(value = "/loginPage.do")
+	public String loginMember(MemberVO memberVO, Model model) {
+		return "member/joinMember";
 	}
 	
 }
