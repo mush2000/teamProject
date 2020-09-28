@@ -10,17 +10,17 @@
 <body>
 <div><font size="10em" style="font-weight: bold">스포츠센터</font></div>
 <div style="height: 30px;"></div>
-<a href="#">로그인</a>
-<a href="#">회원가입</a>
+<a href="loginPage.do">로그인</a>
+<a href="joinPage.do">회원가입</a>
 <div style="height: 30px;"></div>
-<div style="width:100%; height:100%; background-color: white;">
+<div style="width:100%; height:100%;">
 	<nav style="font-size: 20px; font-weight: bold">
 		<ul class="mainMenu" >
 			<li>
-				<a href="main.do">MAIN</a>
+				<a href="main.do" class="mainMenuA">MAIN</a>
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
-				센터소개
+				<a href="#" class="mainMenuA">센터소개</a>
 				<ul class="subMenu">
 					<li style="text-align: left"><a href="#">시설안내</a></li>
 					<li style="text-align: left"><a href="#">위치안내</a></li>
@@ -28,7 +28,7 @@
 				</ul>	
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
-				강좌소개
+				<a href="#" class="mainMenuA">강좌소개</a>
 				<ul class="subMenu">
 					<li style="text-align: left"><a href="#">수영</a></li>
 					<li style="text-align: left"><a href="#">골프</a></li>
@@ -39,7 +39,7 @@
 				</ul>
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
-				강사소개
+				<a href="#" class="mainMenuA">강사소개</a>
 				<ul class="subMenu">
 					<li style="text-align: left"><a href="#">수영강사</a></li>
 					<li style="text-align: left"><a href="#">골프강사</a></li>
@@ -48,7 +48,7 @@
 				</ul>
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
-				대관안내
+				<a href="#" class="mainMenuA">대관안내</a>
 				<ul class="subMenu">
 					<li style="text-align: left"><a href="#">대관소개</a></li>
 					<li style="text-align: left"><a href="#">대관신청</a></li>
@@ -56,7 +56,7 @@
 				</ul>	
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
-				고객센터
+				<a href="#" class="mainMenuA">고객센터</a>
 				<ul class="subMenu">
 					<li style="text-align: left"><a href="#">공지사항</a></li>
 					<li style="text-align: left"><a href="#">Q&A</a></li>

@@ -27,10 +27,14 @@
 <!-- smaple.js를 사용하기 위한 태그 -->
 <script src="resources/js/main.js"></script>
 
-
+<style type="text/css">
+body{
+	text-align: center;
+}
+</style>
 </head>
 <body>
-<div style="height: 200px;"></div>
-<div>해당화면은 샘플페이지입니다.</div>
+<div style="height: 50px;"></div>
+<div>메인페이지입니다.</div>
 </body>
 </html>

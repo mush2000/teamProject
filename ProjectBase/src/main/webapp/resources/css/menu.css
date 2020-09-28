@@ -22,6 +22,10 @@ ul, li {
   list-style: none;
 }
 
+.mainMenu{
+	margin-bottom: 20px;
+}
+
 ul.mainMenu > li{
 	display: inline-block; /* 하단메뉴 전체 인라인블록처리 */
 	text-align: center;
@@ -31,7 +35,6 @@ ul.mainMenu > li{
 .subMenu{
 	visibility: hidden;
 	position: absolute; /* 하단메뉴 안에 있는 서브메뉴 위치를 고정 */
-	border: 1px solid gray;
 	color: gray;
 	font-size: 12px;
 	width: 150px;
@@ -58,6 +61,17 @@ ul.mainMenu > li{
 	opacity: 1;
 	cursor: pointer;
 	/* top: 30px; */
+}
+
+.mainMenuA{
+	color: white;
+	text-decoration: none;		
+}
+
+.mainMenuA:hover{
+	color: white;
+	cursor: pointer;
+	text-decoration: none;
 }
 
 
