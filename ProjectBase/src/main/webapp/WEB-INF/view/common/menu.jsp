@@ -10,6 +10,9 @@
 <body>
 <div><font size="10em" style="font-weight: bold">스포츠센터</font></div>
 <div style="height: 30px;"></div>
+<a href="#">로그인</a>
+<a href="#">회원가입</a>
+<div style="height: 30px;"></div>
 <div style="width:100%; height:100%; background-color: white;">
 	<nav style="font-size: 20px; font-weight: bold">
 		<ul class="mainMenu" >
