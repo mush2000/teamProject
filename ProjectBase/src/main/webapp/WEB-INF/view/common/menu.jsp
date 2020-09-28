@@ -14,6 +14,9 @@
 	<nav style="font-size: 20px; font-weight: bold">
 		<ul class="mainMenu" >
 			<li>
+				<a href="main.do">MAIN</a>
+			</li>&emsp;&emsp;&emsp;&emsp;
+			<li>
 				센터소개
 				<ul class="subMenu">
 					<li style="text-align: left"><a href="#">시설안내</a></li>
