@@ -14,10 +14,15 @@ public class CentreManageController {
 	@Resource(name = "memberService")
 	MemberService memberService;
 	
-	@RequestMapping(value = "/joinMember.do")
+	@RequestMapping(value = "/joinMemberPage.do")
+	public String joinMember(MemberVO memberVO, Model model) {
+		return "member/joinMember";
+	}
+	
+	@RequestMapping(value = "/insertMember.do")
 	public String insertMember(MemberVO memberVO, Model model) {
 		memberService.insertMember(memberVO);
-		return "sample/sample";
+		return "redirect:main.do";
 	}
 	
 }

@@ -18,7 +18,7 @@
 	</resultMap>
 	
 	<insert id="insertMember">
-		INSERT MEMBER_INFO INTO (
+		INSERT INTO MEMBER_INFO (
 			MEMBER_ID
 			, MEMBER_NAME
 			, MEMBER_PW
