@@ -9,7 +9,7 @@
 <script type="text/JavaScript" src="/js/jquery-1.8.3.min.js" ></script>
 
 <style type="text/css">
-.choiceAddr:hover {
+.choiceAddr, .pageNum:hover {
 	cursor: pointer;
 }
 </style>
@@ -35,7 +35,7 @@
 
 
 	<form name="form" id="form" method="post">
-		<input type="text" name="currentPage" value="1">
+		<input type="text" name="currentPage" id="currentPage" value="1">
 		<!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
 		<input type="text" name="countPerPage" value="10">
 		<!-- 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <= 100) -->

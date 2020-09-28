@@ -169,6 +169,11 @@ $(document).ready(function(){
 	$(document).on('click', '.choiceAddr', function() {
 		$('#memberAddr1').val($(this).text());
 	});
+	
+	$(document).on('click', '.pageNum', function() {
+		$('#currentPage').val($(this).text());
+		getAddrLoc();
+	});
 });
 
 /* 함수선언 영역*/
@@ -223,9 +228,13 @@ $(document).ready(function(){
 			pageCnt = Math.ceil(totalCnt/10);
 		}
 		htmlStr += totalCnt/10;
-		htmlStr += " " + pageCnt;
+		htmlStr += " " + pageCnt + "<br>";
+		for(i = 1 ; i <= pageCnt ; i++) {
+			htmlStr += " <span class='pageNum'>" + i + "</span>";
+		}
 		$("#list").html(htmlStr);
 	}
+	
 	
 	//특수문자, 특정문자열(sql예약어의 앞뒤공백포함) 제거
 	checkSearchedWord = function(obj){
