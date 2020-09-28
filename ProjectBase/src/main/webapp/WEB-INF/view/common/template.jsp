@@ -29,17 +29,8 @@ label.error{
 	margin-right: auto;
 	margin-left: auto;
 	width: 100%;
-	background-color: black;
-}
-.menuDiv{
-	height: 25%;
-	padding: 0 0 0 0;
 }
 
-.mainDiv{
-	height: 75%;
-	padding: 0 0 0 0;
-}
 </style>
 <script type="text/javascript">
 //validate에 정규식 사용하게 설정
@@ -50,20 +41,8 @@ $.validator.addMethod('regx', function(value, element, regexpr){
 </head>
 <body>
 <div class="myContainer">
-	<div class="row menuDiv">
-		<div class="col-md-12">
-			<div class="col-md-2"></div>
-			<div class="col-md-8" style="background-color: red;"><tiles:insertAttribute name="menu" /></div>
-			<div class="col-md-2"></div>
-		</div>
-	</div>
-	<div class="row mainDiv">
-		<div class="col-md-12">
-			<div class="col-md-2"></div>
-			<div class="col-md-8" style="background-color: blue;"><tiles:insertAttribute name="body" /></div>
-			<div class="col-md-2"></div>
-		</div>
-	</div>
+	<tiles:insertAttribute name="menu" />
+	<tiles:insertAttribute name="body" />
 </div>
 </body>
 </html>

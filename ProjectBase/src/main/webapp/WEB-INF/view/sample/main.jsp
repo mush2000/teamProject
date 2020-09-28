@@ -30,7 +30,7 @@
 
 </head>
 <body>
+<div style="height: 200px;"></div>
 <div>해당화면은 샘플페이지입니다.</div>
-<img src="resources/images/spongebob.png" width="100px">
 </body>
 </html>

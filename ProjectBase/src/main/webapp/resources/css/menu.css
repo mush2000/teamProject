@@ -1,0 +1,98 @@
+@charset "UTF-8";
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;  
+}
+
+nav {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.mainMenu > li{
+	display: inline-block; /* 하단메뉴 전체 인라인블록처리 */
+	text-align: center;
+	position: relative; /* 하단메뉴 안에 있는 서브메뉴를 아래에 위치시킴 */
+}
+
+.subMenu{
+	visibility: hidden;
+	position: absolute; /* 하단메뉴 안에 있는 서브메뉴 위치를 고정 */
+	border: 1px solid gray;
+	color: gray;
+	font-size: 12px;
+	width: 150px;
+	background-color: white;
+	opacity: 0;
+}
+
+.subMenu > li{
+	text-align: center;
+	width: 100px;
+	background-color: white;
+	padding: 10px;
+}
+
+.mainMenu > li:hover,
+,.subMenu > li:hover{
+	background-color: white;
+	cursor: pointer;
+	color: black;
+}
+
+.mainMenu > li:hover .subMenu, .mainMenu > li:hover .subMenu:hover{
+	visibility: visible;
+	opacity: 1;
+	cursor: pointer;
+	/* top: 30px; */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
