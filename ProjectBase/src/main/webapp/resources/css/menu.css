@@ -6,7 +6,7 @@ body {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  overflow-x: hidden;  
+  overflow-x: hidden; 
 }
 
 nav {
@@ -35,16 +35,19 @@ ul.mainMenu > li{
 .subMenu{
 	visibility: hidden;
 	position: absolute; /* 하단메뉴 안에 있는 서브메뉴 위치를 고정 */
-	color: gray;
-	font-size: 12px;
-	width: 150px;
+	color: black;
+	font-size: 14px;
+	width: 100px;
 	background-color: white;
 	opacity: 0;
+	border: 1px solid #35477D;
+	left: -19px;
+	text-align: center;
 }
 
 .subMenu > li{
 	text-align: center;
-	width: 100px;
+	width: 98px;
 	background-color: white;
 	padding: 10px;
 }
@@ -68,17 +71,51 @@ ul.mainMenu > li{
 	text-decoration: none;		
 }
 
-.mainMenuA:hover{
-	color: white;
-	cursor: pointer;
-	text-decoration: none;
+.loginA:link { color: yellow; text-decoration: none;}
+.loginA:visited { color: yellow; text-decoration: none;}
+.loginA:hover { color: yellow; text-decoration: underline; cursor: pointer;}
+
+.joinA:link { color: yellow; text-decoration: none;}
+.joinA:visited { color: yellow; text-decoration: none;}
+.joinA:hover { color: yellow; text-decoration: underline; cursor: pointer;}
+
+.mainMenuA:link { color: white; text-decoration: none;}
+.mainMenuA:visited { color: white; text-decoration: none;}
+.mainMenuA:hover { color: white; text-decoration: none; cursor: pointer;}
+
+.subMenuA:link { color: #35477D; text-decoration: none;}
+.subMenuA:visited { color: #35477D; text-decoration: none;}
+.subMenuA:hover { color: #35477D; text-decoration: underline; cursor: pointer;}
+
+/* 웹폰트 : 에스코어드림Md체 */
+@font-face {
+	font-family: 'S-CoreDream-5Medium';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-5Medium.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
 }
 
+/* 웹폰트 : 에스코어드림Reg체 */
+@font-face {
+	font-family: 'S-CoreDream-4Regular';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
 
-
-
-
-
+/* 버튼css */
+/* .loginBtn, .joinBtn{
+    height: 40px;
+    padding: 0 18px;
+    margin-right: 8px;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: #35477D;
+    border: 1px solid white;
+    background-color: white;
+    border-radius: 3px;
+    cursor: pointer;
+} */
 
 
 
