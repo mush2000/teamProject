@@ -10,9 +10,9 @@ public class SampleController {
 	@Resource(name = "sampleService")
 	SampleService sampleService;
 	
-	@RequestMapping(value = "/main.do")
-	public String manageBuy() {
-		return "sample/main";
+	@RequestMapping(value = "/mainPage.do")
+	public String mainPage() {
+		return "common/mainPage";
 	}
 	
 }

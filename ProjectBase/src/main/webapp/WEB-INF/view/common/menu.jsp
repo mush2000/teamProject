@@ -17,7 +17,7 @@
 	<nav style="font-size: 20px; font-weight: bold">
 		<ul class="mainMenu" >
 			<li>
-				<a href="main.do" class="mainMenuA">MAIN</a>
+				<a href="mainPage.do" class="mainMenuA">MAIN</a>
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
 				<a href="#" class="mainMenuA">센터소개</a>
