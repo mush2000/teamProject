@@ -64,41 +64,45 @@
 			<li>
 				<a href="#" class="mainMenuA">강사안내</a>
 				<ul class="subMenu">
-					<li><a href="#" class="subMenuA">수영강사</a></li>
-					<li><a href="#" class="subMenuA">골프강사</a></li>
-					<li><a href="#" class="subMenuA">스쿼시강사</a></li>
-					<li><a href="#" class="subMenuA">요가강사</a></li>
-					<li><a href="#" class="subMenuA">트레이너</a></li>
-					<li><a href="#" class="subMenuA">시간제강사</a></li>
+					<li><a href="l.do" class="subMenuA">수영강사</a></li>
+					<li><a href="m.do" class="subMenuA">골프강사</a></li>
+					<li><a href="n.do" class="subMenuA">스쿼시강사</a></li>
+					<li><a href="o.do" class="subMenuA">요가강사</a></li>
+					<li><a href="p.do" class="subMenuA">트레이너</a></li>
+					<li><a href="q.do" class="subMenuA">시간제강사</a></li>
 				</ul>
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
 				<a href="#" class="mainMenuA">대관안내</a>
 				<ul class="subMenu">
-					<li><a href="#" class="subMenuA">대관소개</a></li>
-					<li><a href="#" class="subMenuA">대관신청</a></li>
-					<li><a href="#" class="subMenuA">대관일정</a></li>
+					<li><a href="r.do" class="subMenuA">대관소개</a></li>
+					<li><a href="s.do" class="subMenuA">대관신청</a></li>
+					<li><a href="t.do" class="subMenuA">대관일정</a></li>
 				</ul>	
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
 				<a href="#" class="mainMenuA">행사안내</a>
 				<ul class="subMenu">
-					<li><a href="#" class="subMenuA">센터행사</a></li>
-					<li><a href="#" class="subMenuA">각종대회</a></li>
+					<li><a href="u.do" class="subMenuA">센터행사</a></li>
+					<li><a href="v.do" class="subMenuA">각종대회</a></li>
 				</ul>	
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
 				<a href="#" class="mainMenuA">고객센터</a>
 				<ul class="subMenu">
-					<li><a href="#" class="subMenuA">공지사항</a></li>
-					<li><a href="#" class="subMenuA">Q&A</a></li>
+					<li><a href="w.do" class="subMenuA">공지사항</a></li>
+					<li><a href="x.do" class="subMenuA">Q&A</a></li>
+					<li><a href="y.do" class="subMenuA">강사지원</a></li>
 				</ul>	
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
 				<a href="#" class="mainMenuA">관리자</a>
 				<ul class="subMenu">
-					<li><a href="#" class="subMenuA">회원관리</a></li>
-					<li><a href="#" class="subMenuA">강사관리</a></li>
+					<li><a href="adminA.do" class="subMenuA">회원관리</a></li>
+					<li><a href="adminB.do" class="subMenuA">강사관리</a></li>
+					<li><a href="adminC.do" class="subMenuA">지원자관리</a></li>
+					<li><a href="adminD.do" class="subMenuA">대관관리</a></li>
+					<li><a href="adminE.do" class="subMenuA">게시판관리</a></li>
 				</ul>	
 			</li>&emsp;&emsp;&emsp;&emsp;
 		</ul>
