@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="resources/css/menu.css?ver=15"/>
+<link rel="stylesheet" type="text/css" href="resources/css/menu.css?ver=17"/>
 </head>
 <body>
 <div style="height: 10px;"></div>
@@ -31,7 +31,7 @@
 </div>
 <div style="height: 30px;"></div>
 <div>
-	<font size="12em" style="color: white; font-family: 'S-CoreDream-5Medium';">울산남구스포츠센터</font>
+	<font size="12em" style="color: white; font-family: 'S-CoreDream-5Medium';"><a href="mainPage.do" class="titleA">울산남구스포츠센터</a></font>
 </div>
 <div style="height: 30px;"></div>
 <div style="width:100%; height:100%;">
