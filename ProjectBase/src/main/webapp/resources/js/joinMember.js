@@ -183,17 +183,29 @@ $(document).ready(function(){
 	
 	//};
 	getAddrLoc = function(){
-		// 적용예 (api 호출 전에 검색어 체크) 	
+		// 적용예 (api 호출 전에 검색어 체크)
+		var keyword = $('#tKeyword').val();
+		if (!$('#area').is(':checked')) {
+			keyword += ' 울산광역시';
+		}
+		$('#keyword').val(keyword);
 		if (!checkSearchedWord(document.form.keyword)) {
 			return ;
 		}
+//		if ($('#keywordrmUlsan').val() != 'notUlsan') {			//serialize에서 주소빼서 따로 전송 또는 form 쓰지 않고 따로 전송
+//			var kw= $('#keyword').val();
+//			$('#keyword').val(kw+" 울산광역시");
+//		}
 
 		$.ajax({
-			 url :"getAddrApi.do"
-			,type:"post"
-			,data:$("#form").serialize()
-			,dataType:"json"
-			,success:function(jsonStr){
+			url :"getAddrApi.do",
+			type:"post",
+			data:$("#form").serialize(),
+			dataType:"json",
+			success:function(jsonStr){
+//				jsonStr = encodeURI(jsonStr);
+//				jsonStr = encodeURIComponent(jsonStr);
+//				alert(jsonStr);
 				$("#list").html("");
 				var errCode = jsonStr.results.common.errorCode;
 				var errDesc = jsonStr.results.common.errorMessage;
@@ -212,24 +224,37 @@ $(document).ready(function(){
 	}
 	
 	makeListJson = function(jsonStr){
-		var totalCnt = jsonStr.results.common.totalCount
-		var htmlStr = totalCnt;
+		var totalCnt = jsonStr.results.common.totalCount;
+		var currentPage = jsonStr.results.common.currentPage;
+		var htmlStr = totalCnt + " " + currentPage;
+		var lastPage = Math.ceil(totalCnt/10);
+		var startPage = 1;
+		var endPage = lastPage;
 		htmlStr += "<table>";
 		$(jsonStr.results.juso).each(function(){
-			htmlStr += "<tr>";
-			htmlStr += "<td>"+"<span class='choiceAddr'>"+this.zipNo;
-			htmlStr += " "+this.roadAddrPart1;
-			htmlStr += " ("+this.jibunAddr+")"+"</span>"+"</td>";
+			htmlStr += "<tr`>";
+			htmlStr += "<td>"+this.siNm+"</td>";
+			htmlStr += "<td>"+this.sggNm+"</td>";
+			htmlStr += "<td>"+this.zipNo;
+			htmlStr += " <span class='choiceAddr'>"+this.roadAddrPart1;
+			htmlStr += "</span> (<span class='choiceAddr'>"+this.jibunAddr+"</span>) </td></tr>";
 		});
 		htmlStr += "</table>";
-		if (totalCnt > 100) {
-			pageCnt = 10;
+		if (lastPage > 10) {
+			if (currentPage < 5) {
+				endPage = 10;
+			} else if (currentPage > lastPage - 6) {
+				startPage = lastPage - 9;
+			} else {
+				startPage = currentPage - 4;
+				endPage = current + 5;
+			}
 		} else {
-			pageCnt = Math.ceil(totalCnt/10);
+			endPage = Math.ceil(totalCnt/10);
 		}
 		htmlStr += totalCnt/10;
-		htmlStr += " " + pageCnt + "<br>";
-		for(i = 1 ; i <= pageCnt ; i++) {
+		htmlStr += " " + currentPage + "<br>";
+		for(i = startPage ; i <= endPage ; i++) {
 			htmlStr += " <span class='pageNum'>" + i + "</span>";
 		}
 		$("#list").html(htmlStr);
