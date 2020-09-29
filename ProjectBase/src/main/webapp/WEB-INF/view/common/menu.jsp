@@ -94,6 +94,13 @@
 					<li><a href="#" class="subMenuA">Q&A</a></li>
 				</ul>	
 			</li>&emsp;&emsp;&emsp;&emsp;
+			<li>
+				<a href="#" class="mainMenuA">관리자</a>
+				<ul class="subMenu">
+					<li><a href="#" class="subMenuA">회원관리</a></li>
+					<li><a href="#" class="subMenuA">강사관리</a></li>
+				</ul>	
+			</li>&emsp;&emsp;&emsp;&emsp;
 		</ul>
 	</nav>
 </div>
