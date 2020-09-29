@@ -7,15 +7,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
-<style type="text/css">
-body{
-
-}
-</style>
 </head>
 <body>
 <div>메인페이지입니다.</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 <!-- css를 사용하기 위한 태그 -->
 <!-- <link rel="stylesheet" type="text/css" href="resources/css/mainPage.css?ver=2"/> -->

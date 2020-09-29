@@ -43,22 +43,22 @@
 			<li>
 				<a href="#" class="mainMenuA">센터안내</a>
 				<ul class="subMenu">
-					<li><a href="#" class="subMenuA">인삿말</a></li>
-					<li><a href="#" class="subMenuA">시설현황</a></li>
-					<li><a href="#" class="subMenuA">위치안내</a></li>
+					<li><a href="a.do" class="subMenuA">인삿말</a></li>
+					<li><a href="b.do" class="subMenuA">시설현황</a></li>
+					<li><a href="c.do" class="subMenuA">위치안내</a></li>
 				</ul>	
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
 				<a href="#" class="mainMenuA">강의안내</a>
 				<ul class="subMenu">
-					<li><a href="#" class="subMenuA">수영</a></li>
-					<li><a href="#" class="subMenuA">스크린골프</a></li>
-					<li><a href="#" class="subMenuA">실내체육</a></li>
-					<li><a href="#" class="subMenuA">스쿼시</a></li>
-					<li><a href="#" class="subMenuA">GX</a></li>
-					<li><a href="#" class="subMenuA">헬스</a></li>
-					<li><a href="#" class="subMenuA">요가</a></li>
-					<li><a href="#" class="subMenuA">필라테스</a></li>
+					<li><a href="d.do" class="subMenuA">수영</a></li>
+					<li><a href="e.do" class="subMenuA">스크린골프</a></li>
+					<li><a href="f.do" class="subMenuA">실내체육</a></li>
+					<li><a href="g.do" class="subMenuA">스쿼시</a></li>
+					<li><a href="h.do" class="subMenuA">GX</a></li>
+					<li><a href="i.do" class="subMenuA">헬스</a></li>
+					<li><a href="j.do" class="subMenuA">요가</a></li>
+					<li><a href="k.do" class="subMenuA">필라테스</a></li>
 				</ul>
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
