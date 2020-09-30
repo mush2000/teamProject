@@ -57,17 +57,16 @@ $(document).ready(function(){
 			
 			memberBirthday:{
 				required : true,
-				minlength : 10,
+				/*minlength : 10,
 				maxlength : 11,
-				regx:/^0[0-9]*$/i
+				regx:/^0[0-9]*$/i*/
 			},
 						
-			
 			memberAddr:{
 				required : true,
-				minlength : 10,
-				maxlength : 11,
-				regx:/^0[0-9]*$/i
+				minlength : 5,
+				maxlength : 50,
+				//regx:/^0[0-9]*$/i
 			},
 			
 			memberTel:{
@@ -125,34 +124,38 @@ $(document).ready(function(){
 				maxlength : '글자수 제한을 넘었습니다',
 			},
 			
-			memberAge:{
-				required : '전화번호를 입력하세요',
-				minlength : '길이가 짧습니다. 정확하게 입력했는지 확인하세요',
+			memberBirthday:{
+				required : '생년월일를 입력하세요',
+				/*minlength : '길이가 짧습니다. 정확하게 입력했는지 확인하세요',
 				maxlength : '길이가 깁니다. 정확하게 입력했는지 확인하세요',
-				regx: '0으로 시작하는 숫자만 입력하세요'
+				regx: '0으로 시작하는 숫자만 입력하세요'*/
 			},
 			
 			memberAddr:{
-				required : '두번째 전화번호를 입력하세요',
+				required : '주소를 입력하세요',
 				minlength : '길이가 짧습니다. 정확하게 입력했는지 확인하세요',
 				maxlength : '길이가 깁니다. 정확하게 입력했는지 확인하세요',
-				regx: '0으로 시작하는 숫자만 입력하세요'
+				//regx: '0으로 시작하는 숫자만 입력하세요'
 			},
 			
 			memberTel:{
-				required : '이메일을 입력하세요',
+				required : '전화번호를 입력하세요',
+				minlength : '너무짧습니다',
 				maxlength : '글자수가 초과 되었습니다',
-				regx: '이메일 형식이 아닙니다'
+				regx: '숫자가 아닙니다'
 			},
 			
 			memberTel2:{
-				required : '태어난 해를 입력하세요',
-				regx: '숫자를 입력하세요'
+				minlength : '너무짧습니다',
+				maxlength : '글자수가 초과 되었습니다',
+				regx: '숫자가 아닙니다'
 			},
 			
 			memberEmail:{
-				required : '태어난 해를 입력하세요',
-				regx: '숫자를 입력하세요'
+				required : '이메일를 입력하세요',
+				// email : true,                //이메일만 입력 지정
+				// url : true,                  //url만 입력 지정
+				maxlength : '글자수가 초과 되었습니다',
 			},
 		},
         //유효성검사 실패시 메시지 출력방식을 설정
@@ -168,11 +171,17 @@ $(document).ready(function(){
 	
 	$(document).on('click', '.choiceAddr', function() {
 		$('#memberAddr1').val($(this).text());
+		$('#memberAddr2').attr('readonly',false);
 	});
 	
 	$(document).on('click', '.pageNum', function() {
 		$('#currentPage').val($(this).text());
 		getAddrLoc();
+	});
+	
+	$(document).on('click', '#submitBtn', function() {
+		$('#memberAddr').val($('#memberAddr1').val() + $('#memberAddr2').val());
+		submit();
 	});
 });
 
@@ -185,9 +194,6 @@ $(document).ready(function(){
 	getAddrLoc = function(){
 		// 적용예 (api 호출 전에 검색어 체크)
 		var keyword = $('#tKeyword').val();
-		if (!$('#area').is(':checked')) {
-			keyword += ' 울산광역시';
-		}
 		$('#keyword').val(keyword);
 		if (!checkSearchedWord(document.form.keyword)) {
 			return ;
@@ -196,7 +202,12 @@ $(document).ready(function(){
 //			var kw= $('#keyword').val();
 //			$('#keyword').val(kw+" 울산광역시");
 //		}
+		if (!$('#area').is(':checked')) {
+			keyword += ' 울산광역시';
+		}
+		$('#keyword').val(keyword);
 
+		alert(keyword);
 		$.ajax({
 			url :"getAddrApi.do",
 			type:"post",
@@ -205,14 +216,18 @@ $(document).ready(function(){
 			success:function(jsonStr){
 //				jsonStr = encodeURI(jsonStr);
 //				jsonStr = encodeURIComponent(jsonStr);
-//				alert(jsonStr);
+				alert('jsonStr');
+				alert(jsonStr);
 				$("#list").html("");
 				var errCode = jsonStr.results.common.errorCode;
 				var errDesc = jsonStr.results.common.errorMessage;
 				if(errCode != "0"){
 					alert(errCode+"="+errDesc);
 				}else{
+					alert(123);
+					alert(jsonStr);
 					if(jsonStr != null){
+						alert(2222);
 						makeListJson(jsonStr);
 					}
 				}
@@ -224,6 +239,7 @@ $(document).ready(function(){
 	}
 	
 	makeListJson = function(jsonStr){
+		alert(123);
 		var totalCnt = jsonStr.results.common.totalCount;
 		var currentPage = jsonStr.results.common.currentPage;
 		var htmlStr = totalCnt + " " + currentPage;
@@ -240,6 +256,7 @@ $(document).ready(function(){
 			htmlStr += "</span> (<span class='choiceAddr'>"+this.jibunAddr+"</span>) </td></tr>";
 		});
 		htmlStr += "</table>";
+		alert(lastPage);
 		if (lastPage > 10) {
 			if (currentPage < 5) {
 				endPage = 10;
@@ -247,15 +264,19 @@ $(document).ready(function(){
 				startPage = lastPage - 9;
 			} else {
 				startPage = currentPage - 4;
-				endPage = current + 5;
+				endPage = currentPage - 0 + 5;
 			}
-		} else {
-			endPage = Math.ceil(totalCnt/10);
 		}
+		alert(currentPage);
+		alert(startPage);
+		alert(endPage);
 		htmlStr += totalCnt/10;
 		htmlStr += " " + currentPage + "<br>";
 		for(i = startPage ; i <= endPage ; i++) {
-			htmlStr += " <span class='pageNum'>" + i + "</span>";
+			if(i == currentPage)
+				htmlStr += " <span>" + i + "</span>";
+			else
+				htmlStr += " <span class='pageNum'>" + i + "</span>";
 		}
 		$("#list").html(htmlStr);
 	}
@@ -296,7 +317,7 @@ $(document).ready(function(){
 	enterSearch = function() {
 		var evt_code = (window.netscape) ? ev.which : event.keyCode;
 		if (evt_code == 13) {    
-			event.keyCode = 0;  
+			event.keyCode = 0;
 			getAddrLoc(); 
 		} 
 	}

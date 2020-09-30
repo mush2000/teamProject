@@ -52,25 +52,21 @@ public class CentreManageController {
 	public String loginMember(MemberVO memberVO, Model model) {
 		return "member/joinMember";
 	}
-	
-	@RequestMapping(value = "/addrPopup.do")
-	public String addrPopup() {
-		return "member/jusoPopup";
-	}
-	
+
 	@ResponseBody
 	@RequestMapping(value = "/getAddrApi.do")
 	public void getAddrApi(HttpServletRequest req, ModelMap model, HttpServletResponse response) throws Exception {
 	//public String getAddrApi(String currentPage, String keyword, ModelMap model, HttpServletResponse response) throws Exception {
-		// 요청변수 설정
-		String currentPage = req.getParameter("currentPage"); // 요청 변수 설정 (현재 페이지. currentPage : n > 0)
-//		String countPerPage = req.getParameter("countPerPage"); // 요청 변수 설정 (페이지당 출력 개수. countPerPage 범위 : 0 < n <=
+		// �슂泥�蹂��닔 �꽕�젙
+		String currentPage = req.getParameter("currentPage"); // �슂泥� 蹂��닔 �꽕�젙 (�쁽�옱 �럹�씠吏�. currentPage : n > 0)
+//		String countPerPage = req.getParameter("countPerPage"); // �슂泥� 蹂��닔 �꽕�젙 (�럹�씠吏��떦 異쒕젰 媛쒖닔. countPerPage 踰붿쐞 : 0 < n <=
 																// 100)
-//		String resultType = req.getParameter("resultType"); // 요청 변수 설정 (검색결과형식 설정, json)
-//		String confmKey = req.getParameter("confmKey"); // 요청 변수 설정 (승인키)
-		String keyword = req.getParameter("keyword"); // 요청 변수 설정 (키워드)
+//		String resultType = req.getParameter("resultType"); // �슂泥� 蹂��닔 �꽕�젙 (寃��깋寃곌낵�삎�떇 �꽕�젙, json)
+//		String confmKey = req.getParameter("confmKey"); // �슂泥� 蹂��닔 �꽕�젙 (�듅�씤�궎)
+		String keyword = req.getParameter("keyword"); // �슂泥� 蹂��닔 �꽕�젙 (�궎�썙�뱶)
+		System.out.println(currentPage + " " + keyword);
 //		String  
-		// OPEN API 호출 URL 정보 설정
+		// OPEN API �샇異� URL �젙蹂� �꽕�젙
 //		String apiUrl = "http://www.juso.go.kr/addrlink/addrLinkApi.do?currentPage=" + currentPage + "&countPerPage="
 //				+ countPerPage + "&keyword=" + URLEncoder.encode(keyword, "UTF-8") + "&confmKey=" + confmKey
 //				+ "&resultType=" + resultType;
@@ -85,12 +81,12 @@ public class CentreManageController {
 			tempStr = br.readLine();
 			if (tempStr == null)
 				break;
-			sb.append(tempStr); // 응답결과 JSON 저장
+			sb.append(tempStr); // �쓳�떟寃곌낵 JSON ���옣
 		}
 		br.close();
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/xml");
-		response.getWriter().write(sb.toString()); // 응답결과 반환
+		response.getWriter().write(sb.toString()); // �쓳�떟寃곌낵 諛섑솚
 //		System.out.println(sb.toString());
 //		return sb.toString();
 	}

@@ -17,19 +17,20 @@
 <title></title>
 </head>
 <body>
-<form action="insertMember.do" method="post">
-	<input type="text" placeholder="id" name="memberId"><br>
-	<input type="text" placeholder="pw" name="memberPw" id="inputPassword"><br>
-	<input type="text" placeholder="re-pw" name="memberRepeatPw"><br>
+<form action="insertMember.do" id="joinForm" method="post">
+	<input type="text" placeholder="id" name="memberId"><input type="button" value="아이디중복확인"><br>
+	<input type="password" placeholder="pw" name="memberPw" id="inputPassword"><br>
+	<input type="password" placeholder="re-pw" name="memberRepeatPw"><br>
 	<input type="text" placeholder="name" name="memberName"><br>
 	<input type="date" placeholder="birthday" name="memberBirthday"><br>
-	<input type="text" placeholder="addr" name="memberAddr" id="memberAddr1" style="width: 40em;"><br>
-	<input type="text" placeholder="나머지 주소" name="memberAddr" id="memberAddr4" style="width: 40em;"><br>
+	<input type="text" placeholder="addr" id="memberAddr1" style="width: 40em;" readonly><br>
+	<input type="text" placeholder="나머지 주소" id="memberAddr2" style="width: 40em;" readonly><br>
+	<input type="hidden" name="memberAddr" id="memberAddr">
 	<input type="text" placeholder="tel" name="memberTel"><br>
 	<input type="text" placeholder="tel2" name="memberTel2"><br>
 	<input type="email" placeholder="email" name="memberEmail"><br>
 	성별<input type="radio" name="memberGender" value="M" checked>남<input type="radio" name="memberGender" value="F">여<br>
-	<input type="submit" value="가입">
+	<input type="button" id="submitBtn" value="가입">
 </form>
 
 
@@ -49,7 +50,7 @@
 		<!-- 요청 변수 설정 (승인키) -->
 		<!-- <input type="text" name="keyword" value="" onkeydown="enterSearch();"> -->
 		<input type="text" id="tKeyword" value="" onkeydown="enterSearch();">
-		<input type="hidden" name="keyword" id="keyword">
+		엔터 안먹힘<input type="hidden" name="keyword" id="keyword">
 		<input type="checkbox" id="area">전지역
 		
 		<!-- 요청 변수 설정 (키워드) -->
@@ -62,6 +63,6 @@
 
 
 
-<script src="resources/js/joinMember.js?ver=1"></script>
+<script src="resources/js/joinMember.js?ver=2"></script>
 </body>
 </html>
