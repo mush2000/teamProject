@@ -14,7 +14,6 @@ public class SampleController {
 	public String mainPage() {
 		return "common/mainPage";
 	}
-	
 }
 
 

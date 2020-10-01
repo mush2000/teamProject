@@ -12,6 +12,9 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <title><tiles:insertAttribute name="title" /></title>
 <style type="text/css">
+body{
+	overflow-y: scroll !important; 
+}
 label.error{
 	color: red;
 	font-size: 12px;
@@ -19,10 +22,28 @@ label.error{
 }
 
 .myContainer{
-	margin-right: auto;
-	margin-left: auto;
+	padding: 0 0 0 0;
+	margin: auto;
 	width: 100%;
 }
+.tempMenuTd:hover{
+	cursor: pointer;
+}
+
+/* 버튼css */
+input[type="button"]{
+    height: 28px;
+    padding: 0 18px;
+    margin-right: 8px;
+    box-sizing: border-box;
+    font-size: 13px;
+    color: white;
+    border: 1px solid #0034a9;
+    background-color: #0034a9;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
 </style>
 <!-- Jquey를 사용을 위한 태그 -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
@@ -40,25 +61,26 @@ $.validator.addMethod('regx', function(value, element, regexpr){
 </head>
 <body>
 <div class="myContainer">
-	<table class="template" style="width: 100%;">
+	<table class="template" style="width: 100%; position: absolute;">
 		<tr>
-			<td style="background-color: #35477D; text-align: center; border-bottom: 1px solid lightgray;"><tiles:insertAttribute name="menu" /></td>
+			<td class="tempMenuTd" style="width:100%; height: 250px; background-color: #003aae; background-repeat: no-repeat; background-image: url('resources/images/menu3.jpg'); text-align: center; border-bottom: 1px solid lightgray;" onclick="location.href='mainPage.do';"><tiles:insertAttribute name="menu" /></td>
 		</tr>
 		<tr>
 			<td>
 				<div style="height: 30px;"></div>
-				<table style="width: 100%">
+				<table style="width: 100%;">
 					<colgroup>
-						<col width="25%"></col>
 						<col width="*"></col>
-						<col width="25%"></col>
 					</colgroup>
 					<tr>
-						<td></td>
 						<td><tiles:insertAttribute name="body" /></td>
-						<td></td>
 					</tr>
 				</table>
+			</td>
+		</tr>
+		<tr>
+			<td style="width: 100%;">
+				<tiles:insertAttribute name="foot" />
 			</td>
 		</tr>
 	</table>

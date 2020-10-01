@@ -6,7 +6,8 @@ body {
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  overflow-x: hidden; 
+  overflow-x: hidden;
+  z-index: 6; 
 }
 
 nav {
@@ -14,22 +15,26 @@ nav {
   display: flex;
   justify-content: center;
   position: relative;
+  z-index: 6; 
 }
 
 ul, li {
   margin: 0;
   padding: 0;
   list-style: none;
+  z-index: 6; 
 }
 
 .mainMenu{
 	margin-bottom: 20px;
+	z-index: 6; 
 }
 
 ul.mainMenu > li{
 	display: inline-block; /* 하단메뉴 전체 인라인블록처리 */
 	text-align: center;
 	position: relative; /* 하단메뉴 안에 있는 서브메뉴를 아래에 위치시킴 */
+  	z-index: 6; 
 }
 
 .subMenu{
@@ -40,9 +45,10 @@ ul.mainMenu > li{
 	width: 100px;
 	background-color: white;
 	opacity: 0;
-	border: 1px solid #35477D;
+	border: 1px solid #0034a9;
 	left: -19px;
 	text-align: center;
+	z-index: 6; 
 }
 
 .subMenu > li{
@@ -50,6 +56,7 @@ ul.mainMenu > li{
 	width: 98px;
 	background-color: white;
 	padding: 10px;
+	z-index: 6; 
 }
 
 .mainMenu > li:hover,
@@ -57,28 +64,31 @@ ul.mainMenu > li{
 	background-color: white;
 	cursor: pointer;
 	color: black;
+	z-index: 6; 
 }
 
 .mainMenu > li:hover .subMenu, .mainMenu > li:hover .subMenu:hover{
 	visibility: visible;
 	opacity: 1;
 	cursor: pointer;
+	z-index: 6; 
 	/* top: 30px; */
 }
 
 .mainMenuA{
 	color: white;
 	text-decoration: none;		
+	z-index: 6; 
 }
 
 
-.loginA:link { color: yellow; text-decoration: none;}
-.loginA:visited { color: yellow; text-decoration: none;}
-.loginA:hover { color: yellow; text-decoration: underline; cursor: pointer;}
+.loginA:link { color: #ffcc00; text-decoration: none;}
+.loginA:visited { color: #ffcc00; text-decoration: none;}
+.loginA:hover { color: #ffcc00; text-decoration: underline; cursor: pointer;}
 
-.joinA:link { color: yellow; text-decoration: none;}
-.joinA:visited { color: yellow; text-decoration: none;}
-.joinA:hover { color: yellow; text-decoration: underline; cursor: pointer;}
+.joinA:link { color: #ffcc00; text-decoration: none;}
+.joinA:visited { color: #ffcc00; text-decoration: none;}
+.joinA:hover { color: #ffcc00; text-decoration: underline; cursor: pointer;}
 
 .titleA:link { color: white; text-decoration: none;}
 .titleA:visited { color: white; text-decoration: none;}
@@ -88,9 +98,9 @@ ul.mainMenu > li{
 .mainMenuA:visited { color: white; text-decoration: none;}
 .mainMenuA:hover { color: white; text-decoration: none; cursor: pointer;}
 
-.subMenuA:link { color: #35477D; text-decoration: none;}
-.subMenuA:visited { color: #35477D; text-decoration: none;}
-.subMenuA:hover { color: #35477D; text-decoration: underline; cursor: pointer;}
+.subMenuA:link { color: #0034a9; text-decoration: none;}
+.subMenuA:visited { color: #0034a9; text-decoration: none;}
+.subMenuA:hover { color: #0034a9; text-decoration: underline; cursor: pointer;}
 
 /* 웹폰트 : 에스코어드림Md체 */
 @font-face {

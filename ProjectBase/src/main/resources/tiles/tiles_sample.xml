@@ -3,9 +3,10 @@
 
 <tiles-definitions>
 	<definition name="baseLayout" template="/WEB-INF/view/common/template.jsp">
-		<put-attribute name="title" value="Project"/>
+		<put-attribute name="title" value="울산KH스포츠센터"/>
 		<put-attribute name="menu" value="/WEB-INF/view/common/menu.jsp"/>
 		<put-attribute name="body" value=""/>
+		<put-attribute name="foot" value="/WEB-INF/view/common/bottom.jsp"/>
 	</definition>
 	
 	<definition name="common/*" extends="baseLayout">

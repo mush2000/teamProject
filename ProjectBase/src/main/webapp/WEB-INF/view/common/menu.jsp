@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="resources/css/menu.css?ver=17"/>
+<link rel="stylesheet" type="text/css" href="resources/css/menu.css?ver=18"/>
 </head>
 <body>
 <div style="height: 10px;"></div>
@@ -22,19 +22,15 @@
 				<td></td>
 				<td style="text-align: right; font-family: 'S-CoreDream-4Regular';">
 					<a href="loginPage.do" class="loginA">LOGIN</a>
-					&emsp;<font style="color: yellow; font-family: 'S-CoreDream-4Regular';">│</font>&emsp;
+					&emsp;<font style="color: #ffcc00; font-family: 'S-CoreDream-4Regular';">│</font>&emsp;
 					<a href="joinPage.do" class="joinA">JOIN</a>
 				</td>
 			</tr>
 		</table>
 	</div>
 </div>
-<div style="height: 30px;"></div>
-<div>
-	<font size="12em" style="color: white; font-family: 'S-CoreDream-5Medium';"><a href="mainPage.do" class="titleA">울산남구스포츠센터</a></font>
-</div>
-<div style="height: 30px;"></div>
-<div style="width:100%; height:100%;">
+<div style="height: 200px;"></div>
+<div style="width:100%; height:100%;" class="col-md-offset-1">
 	<nav style="font-size: 16px; font-family: 'S-CoreDream-5Medium';">
 		<ul class="mainMenu" >
 			<li>
@@ -91,12 +87,12 @@
 				<a href="#" class="mainMenuA">고객센터</a>
 				<ul class="subMenu">
 					<li><a href="w.do" class="subMenuA">공지사항</a></li>
-					<li><a href="x.do" class="subMenuA">Q&A</a></li>
+					<li><a href="x.do" class="subMenuA">Q&amp;A</a></li>
 					<li><a href="y.do" class="subMenuA">강사지원</a></li>
 				</ul>	
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
-				<a href="#" class="mainMenuA">관리자</a>
+				<a href="#" class="mainMenuA" style="color: #ffcc00"><span class="glyphicon glyphicon-wrench"></span>&nbsp;관리자</a>
 				<ul class="subMenu">
 					<li><a href="adminA.do" class="subMenuA">회원관리</a></li>
 					<li><a href="adminB.do" class="subMenuA">강사관리</a></li>
