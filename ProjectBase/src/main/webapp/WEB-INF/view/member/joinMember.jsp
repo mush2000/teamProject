@@ -18,17 +18,47 @@
 </head>
 <body>
 <form action="insertMember.do" id="joinForm" method="post">
-	<input type="text" placeholder="id" name="memberId"><input type="button" value="아이디중복확인"><br>
+	<input type="text" placeholder="id" name="memberId" id="memberId">
+	<input type="button" value="아이디중복확인" id="existId"><br>
 	<input type="password" placeholder="pw" name="memberPw" id="inputPassword"><br>
 	<input type="password" placeholder="re-pw" name="memberRepeatPw"><br>
 	<input type="text" placeholder="name" name="memberName"><br>
-	<input type="date" placeholder="birthday" name="memberBirthday"><br>
+	<input type="date" placeholder="birthday" name="memberBirthday" value="2000-01-01"><br>
 	<input type="text" placeholder="addr" id="memberAddr1" style="width: 40em;" readonly><br>
 	<input type="text" placeholder="나머지 주소" id="memberAddr2" style="width: 40em;" readonly><br>
 	<input type="hidden" name="memberAddr" id="memberAddr">
-	<input type="text" placeholder="tel" name="memberTel"><br>
-	<input type="text" placeholder="tel2" name="memberTel2"><br>
-	<input type="email" placeholder="email" name="memberEmail"><br>
+	<select id="memberTel1_1">
+		<option>010</option>
+		<option>011</option>
+		<option>016</option>
+		<option>017</option>
+		<option>018</option>
+		<option>019</option>
+	</select>-
+	<input type="hidden" name="memberTel">
+	<input type="text" id="memberTel1_2" class="inputTel">-<!--  onkeyup="inputCnt();">- -->
+	<input type="text" id="memberTel1_3" class="inputTel"><br>
+	<select id="memberTel2_1">
+		<option>010</option>
+		<option>011</option>
+		<option>016</option>
+		<option>017</option>
+		<option>018</option>
+		<option>019</option>
+	</select>-
+	<input type="hidden" name="memberTel2">
+	<input type="text" id="memberTel2_2" class="inputTel">-
+	<input type="text" id="memberTel2_3" class="inputTel"><br>
+	<input type="text" placeholder="email" name="memberEmail">@
+	<input type="text" placeholder="email" name="memberEmail">
+	<select class="emailUri">
+		<option value="inputUri" selected>직접입력</option>
+		<option value="naver.com">네이버</option>
+		<option value="hanmail.net">다음</option>
+		<option value="nate.com">네이트</option>
+		<option value="gmail.com">구글</option>
+	</select>
+	
 	성별<input type="radio" name="memberGender" value="M" checked>남<input type="radio" name="memberGender" value="F">여<br>
 	<input type="button" id="submitBtn" value="가입">
 </form>
@@ -63,6 +93,6 @@
 
 
 
-<script src="resources/js/joinMember.js?ver=2"></script>
+<script src="resources/js/joinMember.js?ver=1"></script>
 </body>
 </html>

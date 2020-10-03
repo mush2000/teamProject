@@ -38,7 +38,13 @@
 			, #{memberTel}
 			, #{memberTel2}
 		)
-	</insert>	
+	</insert>
+	
+	<select id="checkId" resultType="String">
+		SELECT MEMBER_ID
+		FROM MEMBER_INFO
+		WHERE MEMBER_ID = #{memberId}
+	</select>
 </mapper>
 
 

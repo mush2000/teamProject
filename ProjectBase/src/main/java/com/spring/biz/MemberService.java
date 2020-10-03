@@ -4,6 +4,8 @@ import com.spring.biz.vo.MemberVO;
 
 public interface MemberService {
 	int insertMember(MemberVO memberVO);
+	
+	String checkId(String memberId);
 
 }
 

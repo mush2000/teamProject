@@ -20,6 +20,11 @@ $(document).ready(function(){
 //           emergencyPhoneNum : 'emergencyPhoneNum2 emergencyPhoneNum3',
 //           phoneNum : 'phoneNum2 phoneNum3'
 //        },
+		groups:{
+			memberTel : 'memberTel_1 memberTel_2 memberTel_3',
+			//emergencyPhoneNum : 'emergencyPhoneNum2 emergencyPhoneNum3',
+			//phoneNum : 'phoneNum2 phoneNum3'
+		},
 		rules : {
           // className:{
           //    required : true             //필수여부 지정
@@ -101,8 +106,8 @@ $(document).ready(function(){
            //memberId:'ID를 입력하세요',
 			memberId:{
 				required: 'ID는 필수항목입니다.',
-				minlength:'ID는 2자 이상 입력하세요.',
-				maxlength:'ID는 10자를 초과할 수 없습니다.',
+				minlength:'ID는 {0}자 이상 입력하세요.',
+				maxlength:'ID는 {0}자를 초과할 수 없습니다.',
 				regx:'영어와 숫자만 사용가능합니다.'
 			},
 			
@@ -114,7 +119,7 @@ $(document).ready(function(){
 			},
 			
 			memberRepeatPw:{
-				required: '비밀번호는 필수항목입니다.',
+				required: '비밀번호 재입력은 필수항목입니다.',
 				equalTo : '비밀번호와 일치 하지 않습니다'
 			},
 			
@@ -169,6 +174,11 @@ $(document).ready(function(){
 		}
 	});
 	
+	$(document).on('click', '#existId', function() {
+		alert(111);
+		checkId();
+	});
+	
 	$(document).on('click', '.choiceAddr', function() {
 		$('#memberAddr1').val($(this).text());
 		$('#memberAddr2').attr('readonly',false);
@@ -183,6 +193,25 @@ $(document).ready(function(){
 		$('#memberAddr').val($('#memberAddr1').val() + $('#memberAddr2').val());
 		submit();
 	});
+	
+	$(document).on('keyup', '.inputTel', function() {
+		if($(this).val().length == 4){
+			$(this).next().focus();
+		}
+	});
+	
+	$(document).on('change', '.emailUri', function() {
+		if($(this).val() == 'inputUri') {
+			$(this).prev().attr('readonly',false);
+			$(this).prev().val('');
+		}
+		else {
+			$(this).prev().attr('readonly',true);
+			$(this).prev().val($(this).val());
+		}
+	});
+	
+	
 });
 
 /* 함수선언 영역*/
@@ -191,6 +220,29 @@ $(document).ready(function(){
 	//aaa = function(){
 	
 	//};
+	checkId = function(){
+		alert('1234');
+		var id = $('#memberId').val();
+		alert(id);
+		if(id == '' || id == null) {
+			alert("아이디를 입력하세요");
+			return;
+		}
+		$.ajax({
+			url :"checkId.do",
+			type:"post",
+			data:$("#memberId").val(),
+			success:function(result){
+				if(result == 1)
+					alert('사용 가능한  아이디입니다.');
+				else
+					alert('사용할 수 없는 아이디 입니다.<br> 다시입력하세요');
+			}
+		    ,error: function(){
+		    	alert("에러발생");
+		    }
+		});
+	};
 	getAddrLoc = function(){
 		// 적용예 (api 호출 전에 검색어 체크)
 		var keyword = $('#tKeyword').val();
@@ -274,7 +326,7 @@ $(document).ready(function(){
 		htmlStr += " " + currentPage + "<br>";
 		for(i = startPage ; i <= endPage ; i++) {
 			if(i == currentPage)
-				htmlStr += " <span>" + i + "</span>";
+				htmlStr += " <span>[" + i + "]</span>";
 			else
 				htmlStr += " <span class='pageNum'>" + i + "</span>";
 		}
@@ -320,5 +372,11 @@ $(document).ready(function(){
 			event.keyCode = 0;
 			getAddrLoc(); 
 		} 
+	}
+	inputCnt = function() {
+		if($('#memberTel1_2').val().length == 4){
+			$('#memberTel1_3').focus();
+		}
+			
 	}
 })(jQuery);

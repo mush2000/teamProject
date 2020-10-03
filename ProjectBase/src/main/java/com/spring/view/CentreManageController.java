@@ -50,7 +50,16 @@ public class CentreManageController {
 	
 	@RequestMapping(value = "/loginPage.do")
 	public String loginMember(MemberVO memberVO, Model model) {
-		return "member/joinMember";
+		return "member/loginMember";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value = "/checkId.do")
+	public int checkId(String memberId) {
+		System.out.println(memberId);
+		System.out.println(memberService.checkId(memberId));
+		System.out.println(memberService.checkId(memberId) != null ? 1 : 0);
+		return memberService.checkId(memberId) != null ? 1 : 0;
 	}
 
 	@ResponseBody
@@ -64,7 +73,6 @@ public class CentreManageController {
 //		String resultType = req.getParameter("resultType"); // �슂泥� 蹂��닔 �꽕�젙 (寃��깋寃곌낵�삎�떇 �꽕�젙, json)
 //		String confmKey = req.getParameter("confmKey"); // �슂泥� 蹂��닔 �꽕�젙 (�듅�씤�궎)
 		String keyword = req.getParameter("keyword"); // �슂泥� 蹂��닔 �꽕�젙 (�궎�썙�뱶)
-		System.out.println(currentPage + " " + keyword);
 //		String  
 		// OPEN API �샇異� URL �젙蹂� �꽕�젙
 //		String apiUrl = "http://www.juso.go.kr/addrlink/addrLinkApi.do?currentPage=" + currentPage + "&countPerPage="

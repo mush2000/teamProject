@@ -16,6 +16,12 @@ public class MemberServiceImpl implements MemberService{
 		return sqlSession.insert("insertMember", memberVO);
 	}
 
+	@Override
+	public String checkId(String memberId) {
+		System.out.println("123654165f1ds65");
+		return sqlSession.selectOne("checkId", memberId);
+	}
+
 	
 }
 
