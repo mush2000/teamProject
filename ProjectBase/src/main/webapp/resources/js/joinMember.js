@@ -175,7 +175,6 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('click', '#existId', function() {
-		alert(111);
 		checkId();
 	});
 	
@@ -195,7 +194,6 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('keyup', '.inputTel', function() {
-		alert(1);
 		if($(this).val().length == 4){
 			$(this).next().focus();
 		}
@@ -222,7 +220,6 @@ $(document).ready(function(){
 	
 	//};
 	checkId = function(){
-		alert('1234');
 		var tId = $('#memberId').val();
 		alert(tId);
 		if(tId == '' || tId == null) {
@@ -234,7 +231,7 @@ $(document).ready(function(){
 			type:"post",
 			data:{ "memberId": tId },
 			success:function(result){
-				if(result == 1)
+				if(result == 0)
 					alert('사용 가능한  아이디입니다.');
 				else
 					alert('사용할 수 없는 아이디 입니다.<br> 다시입력하세요');

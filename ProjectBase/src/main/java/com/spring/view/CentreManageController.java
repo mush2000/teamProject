@@ -56,9 +56,6 @@ public class CentreManageController {
 	@ResponseBody
 	@RequestMapping(value = "/checkId.do")
 	public int checkId(String memberId) {
-		System.out.println(memberId);
-		System.out.println(memberService.checkId(memberId));
-		System.out.println(memberService.checkId(memberId) != null ? 1 : 0);
 		return memberService.checkId(memberId) != null ? 1 : 0;
 	}
 
