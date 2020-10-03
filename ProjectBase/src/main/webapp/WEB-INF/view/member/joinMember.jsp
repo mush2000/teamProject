@@ -57,8 +57,7 @@
 		<option value="hanmail.net">다음</option>
 		<option value="nate.com">네이트</option>
 		<option value="gmail.com">구글</option>
-	</select>
-	
+	</select><br>
 	성별<input type="radio" name="memberGender" value="M" checked>남<input type="radio" name="memberGender" value="F">여<br>
 	<input type="button" id="submitBtn" value="가입">
 </form>
@@ -87,7 +86,7 @@
 		<input type="button" onClick="getAddrLoc();" value="주소검색하기">
 		<div id="list"></div>
 		<!-- 검색 결과 리스트 출력 영역 -->
-<!-- 	</form> -->
+</form>
 
 
 

@@ -20,11 +20,11 @@ $(document).ready(function(){
 //           emergencyPhoneNum : 'emergencyPhoneNum2 emergencyPhoneNum3',
 //           phoneNum : 'phoneNum2 phoneNum3'
 //        },
-		groups:{
-			memberTel : 'memberTel_1 memberTel_2 memberTel_3',
+		//groups:{
+			//memberTel : 'memberTel_1 memberTel_2 memberTel_3',
 			//emergencyPhoneNum : 'emergencyPhoneNum2 emergencyPhoneNum3',
 			//phoneNum : 'phoneNum2 phoneNum3'
-		},
+		//},
 		rules : {
           // className:{
           //    required : true             //필수여부 지정
@@ -195,6 +195,7 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('keyup', '.inputTel', function() {
+		alert(1);
 		if($(this).val().length == 4){
 			$(this).next().focus();
 		}
@@ -222,16 +223,16 @@ $(document).ready(function(){
 	//};
 	checkId = function(){
 		alert('1234');
-		var id = $('#memberId').val();
-		alert(id);
-		if(id == '' || id == null) {
+		var tId = $('#memberId').val();
+		alert(tId);
+		if(tId == '' || tId == null) {
 			alert("아이디를 입력하세요");
 			return;
 		}
 		$.ajax({
 			url :"checkId.do",
 			type:"post",
-			data:$("#memberId").val(),
+			data:{ "memberId": tId },
 			success:function(result){
 				if(result == 1)
 					alert('사용 가능한  아이디입니다.');
@@ -242,7 +243,7 @@ $(document).ready(function(){
 		    	alert("에러발생");
 		    }
 		});
-	};
+	}
 	getAddrLoc = function(){
 		// 적용예 (api 호출 전에 검색어 체크)
 		var keyword = $('#tKeyword').val();
@@ -373,10 +374,10 @@ $(document).ready(function(){
 			getAddrLoc(); 
 		} 
 	}
-	inputCnt = function() {
+	
+/*	inputCnt = function() {
 		if($('#memberTel1_2').val().length == 4){
 			$('#memberTel1_3').focus();
 		}
-			
-	}
+	}*/
 })(jQuery);
