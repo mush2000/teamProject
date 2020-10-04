@@ -19,7 +19,9 @@
 }
 
 .table1, .table2{
-	display: inline-block;	
+	display: inline-block;
+	margin: 0 0 0 0;
+	padding: 0 0 0 0;
 }
 
 /* 웹폰트 : 에스코어드림Md체 */

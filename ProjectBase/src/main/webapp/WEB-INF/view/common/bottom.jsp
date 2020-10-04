@@ -16,14 +16,14 @@
 		<col width="5%"></col>
 		<col width="5%"></col>
 		<col width="5%"></col>
+		<col width="5%"></col>
 	</colgroup>
-	<tr></tr>
 	<tr class="bottomMenuTr">
 		<td>
 			<ul>
 				<li>
 					<br>
-					<span style="font-weight: bold; font-size: 1.3em;">센터안내</span>
+					<span style="font-weight: bold; font-size: 1.3em; text-align: left">센터안내</span>
 					<hr>
 					<ul>
 						<li><a href="#">인삿말</a></li>
@@ -117,7 +117,6 @@
 			</ul>
 		</td>
 	</tr>
-	<tr></tr>
 </table><table class="table2" style="background-color: #0034a9; width: 40%; height: 279px; text-align: center;">
 	<colgroup>
 		<col width="5%"></col>
@@ -127,7 +126,6 @@
 		<col width="5%"></col>
 		<col width="5%"></col>
 	</colgroup>
-	<tr></tr>
 	<tr class="bottomMenuTr">
 		<td>
 			<ul>
@@ -149,7 +147,6 @@
 			</ul>
 		</td>
 	</tr>
-	<tr></tr>
 </table>
 	
 	

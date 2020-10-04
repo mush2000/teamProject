@@ -35,7 +35,7 @@
 	<!-- Wrapper for slides -->
 	<div class="carousel-inner" role="listbox" align="center">
 		<div class="item active">
-			<img src="resources/images/health.jpg" alt="..." class="img-thumbnail">
+			<img src="resources/images/health.jpg" alt="...">
 			<div class="carousel-caption">
 				<font style="font-family: 'S-CoreDream-4Regular'; font-size: 2em;">헬스</font>
 				<hr>
@@ -44,7 +44,7 @@
 			</div>
 		</div>
 		<div class="item">
-			<img src="resources/images/screen-golf.jpg" alt="..." class="img-thumbnail">
+			<img src="resources/images/screen-golf.jpg" alt="...">
 			<div class="carousel-caption">
 				<font style="font-family: 'S-CoreDream-4Regular'; font-size: 2em;">스크린골프</font>
 				<hr>
@@ -53,7 +53,7 @@
 			</div>
 		</div>
 		<div class="item">
-			<img src="resources/images/yoga.jpg" alt="..." class="img-thumbnail">
+			<img src="resources/images/yoga.jpg" alt="...">
 			<div class="carousel-caption">
 				<font style="font-family: 'S-CoreDream-4Regular'; font-size: 2em;">요가/필라테스</font>
 				<hr>
@@ -62,7 +62,7 @@
 			</div>
 		</div>
 		<div class="item">
-			<img src="resources/images/tennis.jpg" alt="..." class="img-thumbnail">
+			<img src="resources/images/tennis.jpg" alt="...">
 			<div class="carousel-caption">
 				<font style="font-family: 'S-CoreDream-4Regular'; font-size: 2em;">테니스/스쿼시</font>
 				<hr>

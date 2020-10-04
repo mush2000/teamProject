@@ -23,8 +23,9 @@ label.error{
 
 .myContainer{
 	padding: 0 0 0 0;
-	margin: auto;
+	margin: 0 0 0 0;
 	width: 100%;
+	height: 100%
 }
 .tempMenuTd:hover{
 	cursor: pointer;
@@ -67,7 +68,7 @@ $.validator.addMethod('regx', function(value, element, regexpr){
 		</tr>
 		<tr>
 			<td>
-				<div style="height: 30px;"></div>
+				<div style="height: 50px;"></div>
 				<table style="width: 100%;">
 					<colgroup>
 						<col width="*"></col>
@@ -79,7 +80,7 @@ $.validator.addMethod('regx', function(value, element, regexpr){
 			</td>
 		</tr>
 		<tr>
-			<td style="width: 100%;">
+			<td style="width: 100%; height: 100%">
 				<tiles:insertAttribute name="foot" />
 			</td>
 		</tr>
