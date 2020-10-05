@@ -33,7 +33,8 @@ label.error{
 }
 
 /* 버튼css */
-input[type="button"]{
+input[type="button"]
+, input[type="submit"]{
     height: 28px;
     padding: 0 18px;
     margin-right: 8px;

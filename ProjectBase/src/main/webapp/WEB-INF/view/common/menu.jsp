@@ -96,6 +96,7 @@
 				<ul class="subMenu">
 					<li><a href="adminA.do" class="subMenuA">회원관리</a></li>
 					<li><a href="adminB.do" class="subMenuA">강사관리</a></li>
+					<li><a href="insertLecture.do" class="subMenuA">강좌등록</a></li>
 					<li><a href="adminC.do" class="subMenuA">지원자관리</a></li>
 					<li><a href="adminD.do" class="subMenuA">대관관리</a></li>
 					<li><a href="adminE.do" class="subMenuA">게시판관리</a></li>
