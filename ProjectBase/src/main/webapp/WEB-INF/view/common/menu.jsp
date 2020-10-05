@@ -39,7 +39,7 @@
 			<li>
 				<a href="#" class="mainMenuA">센터안내</a>
 				<ul class="subMenu">
-					<li><a href="a.do" class="subMenuA">인삿말</a></li>
+					<li><a href="introPage.do" class="subMenuA">센터소개</a></li>
 					<li><a href="b.do" class="subMenuA">시설현황</a></li>
 					<li><a href="c.do" class="subMenuA">위치안내</a></li>
 				</ul>	

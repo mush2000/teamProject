@@ -17,6 +17,10 @@
 		<put-attribute name="body" value="/WEB-INF/view/member/{1}.jsp" />
 	</definition>
 	
+	<definition name="center/*" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/view/center/{1}.jsp" />
+	</definition>
+	
 </tiles-definitions>
 
 

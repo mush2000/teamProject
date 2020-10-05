@@ -24,6 +24,7 @@ label.error{
 .myContainer{
 	padding: 0 0 0 0;
 	margin: 0 0 0 0;
+	margin-bottom: 0px;
 	width: 100%;
 	height: 100%
 }
@@ -45,6 +46,15 @@ input[type="button"]{
     cursor: pointer;
 }
 
+.bottomTd{
+	padding: 0;
+	margin: 0;
+	height: 279px;
+}
+
+table{
+	table-layout: fixed;
+}
 </style>
 <!-- Jquey를 사용을 위한 태그 -->
 <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> -->
@@ -62,7 +72,7 @@ $.validator.addMethod('regx', function(value, element, regexpr){
 </head>
 <body>
 <div class="myContainer">
-	<table class="template" style="width: 100%; position: absolute;">
+	<table class="template" style="width: auto; height: auto; position: absolute;">
 		<tr>
 			<td class="tempMenuTd" style="width:100%; height: 250px; background-color: #003aae; background-repeat: no-repeat; background-image: url('resources/images/menu3.jpg'); text-align: center; border-bottom: 1px solid lightgray;" onclick="location.href='mainPage.do';"><tiles:insertAttribute name="menu" /></td>
 		</tr>
@@ -77,10 +87,11 @@ $.validator.addMethod('regx', function(value, element, regexpr){
 						<td><tiles:insertAttribute name="body" /></td>
 					</tr>
 				</table>
+				<div style="height: 50px;"></div>
 			</td>
 		</tr>
-		<tr>
-			<td style="width: 100%; height: 100%">
+		<tr style="margin-bottom: 0px;">
+			<td class="bottomTd" style="width: 100%; height: 279px;">
 				<tiles:insertAttribute name="foot" />
 			</td>
 		</tr>

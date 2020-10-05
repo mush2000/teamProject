@@ -1,4 +1,10 @@
 @charset "UTF-8";
+table{
+	table-layout: fixed;
+}
+td{
+	height: 1px;	
+}
 
 .bottomMenuTr{
 	font-family:'S-CoreDream-3Light';
