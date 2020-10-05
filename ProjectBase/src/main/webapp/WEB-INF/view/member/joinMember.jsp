@@ -19,7 +19,7 @@
 <body>
 <form action="insertMember.do" id="joinForm" method="post">
 	<input type="text" placeholder="id" name="memberId" id="memberId">
-	<input type="button" value="아이디중복확인" id="existId"><br>
+	<input type="button" value="아이디중복확인" name="chkId" id="existId"><br>
 	<input type="password" placeholder="pw" name="memberPw" id="inputPassword"><br>
 	<input type="password" placeholder="re-pw" name="memberRepeatPw"><br>
 	<input type="text" placeholder="name" name="memberName"><br>
@@ -35,7 +35,7 @@
 		<option>018</option>
 		<option>019</option>
 	</select>-
-	<input type="hidden" name="memberTel">
+	<input type="hidden" name="memberTel" id="memberTel">
 	<input type="text" id="memberTel1_2" class="inputTel">-<!--  onkeyup="inputCnt();">- -->
 	<input type="text" id="memberTel1_3" class="inputTel"><br>
 	<select id="memberTel2_1">
@@ -46,11 +46,12 @@
 		<option>018</option>
 		<option>019</option>
 	</select>-
-	<input type="hidden" name="memberTel2">
+	<input type="hidden" name="memberTel2" id="memberTel2">
 	<input type="text" id="memberTel2_2" class="inputTel">-
 	<input type="text" id="memberTel2_3" class="inputTel"><br>
-	<input type="text" placeholder="email" name="memberEmail">@
-	<input type="text" placeholder="email" name="memberEmail">
+	<input type="hidden" name="memberEmail" id="memberEmail">
+	<input type="text" placeholder="email" id="memberEmail1">@
+	<input type="text" placeholder="email" id="memberEmail2">
 	<select class="emailUri">
 		<option value="inputUri" selected>직접입력</option>
 		<option value="naver.com">네이버</option>
@@ -59,13 +60,13 @@
 		<option value="gmail.com">구글</option>
 	</select><br>
 	성별<input type="radio" name="memberGender" value="M" checked>남<input type="radio" name="memberGender" value="F">여<br>
-	<input type="button" id="submitBtn" value="가입">
+	<input type="submit" id="submitBtn" value="가입">
 </form>
 
 
 
 
- 	<form name="form" id="form" method="post">
+ 	<!-- <form name="form" id="form" method="post"> -->
 		<input type="hidden" name="currentPage" id="currentPage" value="1">
 		<!-- 요청 변수 설정 (현재 페이지. currentPage : n > 0) -->
 		<!-- <input type="text" name="countPerPage" value="10"> -->
@@ -86,12 +87,12 @@
 		<input type="button" onClick="getAddrLoc();" value="주소검색하기">
 		<div id="list"></div>
 		<!-- 검색 결과 리스트 출력 영역 -->
-</form>
+<!-- </form> -->
 
 
 
 
 
-<script src="resources/js/joinMember.js?ver=1"></script>
+<script src="resources/js/joinMember.js?ver=2"></script>
 </body>
 </html>

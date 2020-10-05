@@ -4,6 +4,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.spring.biz.vo.LoginInfoVO;
 import com.spring.biz.vo.MemberVO;
 
 @Service("memberService") 
@@ -19,6 +20,11 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public String checkId(String memberId) {
 		return sqlSession.selectOne("checkId", memberId);
+	}
+
+	@Override
+	public LoginInfoVO login(MemberVO memberVO) {
+		return sqlSession.selectOne("loginInfo", memberVO);
 	}
 
 	

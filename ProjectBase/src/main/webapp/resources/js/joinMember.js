@@ -4,6 +4,12 @@ $(document).ready(function(){
 	//$(document).on('click', '선택자', function() {
 
 	//});
+	$(document).on('focusout', '#memberId', function() {
+//		alert($('#memberId').val());
+		checkId();
+	});
+	
+	
 	
 	$("#joinForm").validate({
         //테스트를 위하여 유효성 검사가 완료되어도 submit을 처리하지 않음.
@@ -20,11 +26,11 @@ $(document).ready(function(){
 //           emergencyPhoneNum : 'emergencyPhoneNum2 emergencyPhoneNum3',
 //           phoneNum : 'phoneNum2 phoneNum3'
 //        },
-		//groups:{
-			//memberTel : 'memberTel_1 memberTel_2 memberTel_3',
+//		groups:{
+//			chkMemberId : 'memberId chkId',
 			//emergencyPhoneNum : 'emergencyPhoneNum2 emergencyPhoneNum3',
 			//phoneNum : 'phoneNum2 phoneNum3'
-		//},
+//		},
 		rules : {
           // className:{
           //    required : true             //필수여부 지정
@@ -184,12 +190,16 @@ $(document).ready(function(){
 	});
 	
 	$(document).on('click', '.pageNum', function() {
+		alert($(this).text());
 		$('#currentPage').val($(this).text());
 		getAddrLoc();
 	});
 	
 	$(document).on('click', '#submitBtn', function() {
-		$('#memberAddr').val($('#memberAddr1').val() + $('#memberAddr2').val());
+		$('#memberAddr').val($('#memberAddr1').val() + ' ' + $('#memberAddr2').val());
+		$('#memberTel').val($('#memberTel1_1').val() + '-' + $('#memberTel1_2').val() + '-' + $('#memberTel1_3').val());
+		$('#memberTel2').val($('#memberTel2_1').val() + '-' + $('#memberTel2_2').val() + '-' + $('#memberTel2_3').val());
+		$('#memberEmail').val($('#memberEmail1').val() + '@' + $('#memberEmail2').val());
 		submit();
 	});
 	
@@ -221,7 +231,6 @@ $(document).ready(function(){
 	//};
 	checkId = function(){
 		var tId = $('#memberId').val();
-		alert(tId);
 		if(tId == '' || tId == null) {
 			alert("아이디를 입력하세요");
 			return;
@@ -233,8 +242,11 @@ $(document).ready(function(){
 			success:function(result){
 				if(result == 0)
 					alert('사용 가능한  아이디입니다.');
-				else
-					alert('사용할 수 없는 아이디 입니다.<br> 다시입력하세요');
+				else {
+					alert('사용할 수 없는 아이디 입니다.\n다시입력하세요');
+					$('#memberId').val('');
+				}
+				
 			}
 		    ,error: function(){
 		    	alert("에러발생");
@@ -245,9 +257,11 @@ $(document).ready(function(){
 		// 적용예 (api 호출 전에 검색어 체크)
 		var keyword = $('#tKeyword').val();
 		$('#keyword').val(keyword);
-		if (!checkSearchedWord(document.form.keyword)) {
+		alert(111);
+		if (!checkSearchedWord($('#keyword').val())) {
 			return ;
 		}
+		alert(222);
 //		if ($('#keywordrmUlsan').val() != 'notUlsan') {			//serialize에서 주소빼서 따로 전송 또는 form 쓰지 않고 따로 전송
 //			var kw= $('#keyword').val();
 //			$('#keyword').val(kw+" 울산광역시");
@@ -261,7 +275,8 @@ $(document).ready(function(){
 		$.ajax({
 			url :"getAddrApi.do",
 			type:"post",
-			data:$("#form").serialize(),
+//			data:$("#form").serialize(),
+			data:{'keyword':$('#keyword').val(), 'currentPage':$('currentPage').val()},
 			dataType:"json",
 			success:function(jsonStr){
 //				jsonStr = encodeURI(jsonStr);
@@ -334,12 +349,16 @@ $(document).ready(function(){
 	
 	//특수문자, 특정문자열(sql예약어의 앞뒤공백포함) 제거
 	checkSearchedWord = function(obj){
-		if(obj.value.length >0){
+		alert(333);
+//		if(obj.value.length >0){
+		if(obj.length >0){
 			//특수문자 제거
 			var expText = /[%=><]/ ;
-			if(expText.test(obj.value) == true){
+//			if(expText.test(obj.value) == true){
+			if(expText.test(obj) == true){
 				alert("특수문자를 입력 할수 없습니다.") ;
-				obj.value = obj.value.split(expText).join(""); 
+//				obj.value = obj.value.split(expText).join(""); 
+				obj.value = obj.split(expText).join(""); 
 				return false;
 			}
 			
@@ -356,7 +375,8 @@ $(document).ready(function(){
 				
 				if (regex.test(obj.value) ) {
 				    alert("\"" + sqlArray[i]+"\"와(과) 같은 특정문자로 검색할 수 없습니다.");
-					obj.value =obj.value.replace(regex, "");
+//					obj.value =obj.value.replace(regex, "");
+					obj =obj.replace(regex, "");
 					return false;
 				}
 			}

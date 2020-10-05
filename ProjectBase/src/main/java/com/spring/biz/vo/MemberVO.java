@@ -4,9 +4,11 @@ public class MemberVO {
 	private String memberId;
 	private String memberName;
 	private String memberPw;
+	private int wrongPwCnt;
 	private String memberGender;
 	private String memberBirthday;
 	private String memberAddr;
+	private String memberEmail;
 	private String memberTel;
 	private String memberTel2;
 	private String joinDate;
@@ -30,6 +32,12 @@ public class MemberVO {
 	public void setMemberPw(String memberPw) {
 		this.memberPw = memberPw;
 	}
+	public int getWrongPwCnt() {
+		return wrongPwCnt;
+	}
+	public void setWrongPwCnt(int wrongPwCnt) {
+		this.wrongPwCnt = wrongPwCnt;
+	}
 	public String getMemberGender() {
 		return memberGender;
 	}
@@ -47,6 +55,12 @@ public class MemberVO {
 	}
 	public void setMemberAddr(String memberAddr) {
 		this.memberAddr = memberAddr;
+	}
+	public String getMemberEmail() {
+		return memberEmail;
+	}
+	public void setMemberEmail(String memberEmail) {
+		this.memberEmail = memberEmail;
 	}
 	public String getMemberTel() {
 		return memberTel;
@@ -76,10 +90,8 @@ public class MemberVO {
 	@Override
 	public String toString() {
 		return "MemberVO [memberId=" + memberId + ", memberName=" + memberName + ", memberPw=" + memberPw
-				+ ", memberGender=" + memberGender + ", memberBirthday=" + memberBirthday + ", memberAddr=" + memberAddr
-				+ ", memberTel=" + memberTel + ", memberTel2=" + memberTel2 + ", joinDate=" + joinDate + ", delYn="
-				+ delYn + "]";
+				+ ", wrongPwCnt=" + wrongPwCnt + ", memberGender=" + memberGender + ", memberBirthday=" + memberBirthday
+				+ ", memberAddr=" + memberAddr + ", memberEmail=" + memberEmail + ", memberTel=" + memberTel
+				+ ", memberTel2=" + memberTel2 + ", joinDate=" + joinDate + ", delYn=" + delYn + "]";
 	}
-	
-	
 }

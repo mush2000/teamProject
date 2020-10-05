@@ -45,13 +45,20 @@ public class CentreManageController {
 	@RequestMapping(value = "/insertMember.do")
 	public String insertMember(MemberVO memberVO, Model model) {
 		memberService.insertMember(memberVO);
-		return "redirect:main.do";
+		return "redirect:mainPage.do";
 	}
 	
 	@RequestMapping(value = "/loginPage.do")
-	public String loginMember(MemberVO memberVO, Model model) {
+	public String loginPage(MemberVO memberVO, Model model) {
 		return "member/loginMember";
 	}
+	
+	@RequestMapping(value = "/loginMember.do")
+	public String loginMember(MemberVO memberVO, Model model) {
+		return "redirect:mainPage.do";
+	}
+	
+	
 	
 	@ResponseBody
 	@RequestMapping(value = "/checkId.do")
@@ -65,6 +72,7 @@ public class CentreManageController {
 	//public String getAddrApi(String currentPage, String keyword, ModelMap model, HttpServletResponse response) throws Exception {
 		// �슂泥�蹂��닔 �꽕�젙
 		String currentPage = req.getParameter("currentPage"); // �슂泥� 蹂��닔 �꽕�젙 (�쁽�옱 �럹�씠吏�. currentPage : n > 0)
+		System.out.println(currentPage);
 //		String countPerPage = req.getParameter("countPerPage"); // �슂泥� 蹂��닔 �꽕�젙 (�럹�씠吏��떦 異쒕젰 媛쒖닔. countPerPage 踰붿쐞 : 0 < n <=
 																// 100)
 //		String resultType = req.getParameter("resultType"); // �슂泥� 蹂��닔 �꽕�젙 (寃��깋寃곌낵�삎�떇 �꽕�젙, json)

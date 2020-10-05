@@ -8,13 +8,22 @@
 		<result column="MEMBER_ID"    property="memberId"/>
 		<result column="MEMBER_	NAME"    property="memberName"/>
 		<result column="MEMBER_PW"    property="memberPw"/>
+		<result column="WRONG_PW_CNT"    property="wrongPwCnt"/>
 		<result column="MEMBER_GENDER"    property="memberGender"/>
 		<result column="MEMBER_BIRTHDAY"    property="memberBirthday"/>
 		<result column="MEMBER_ADDR"    property="memberAddr"/>
+		<result column="MEMBER_EMAIL"    property="memberEmail"/>
 		<result column="MEMBER_TEL"    property="memberTel"/>
 		<result column="MEMBER_TEL2"    property="memberTel2"/>
 		<result column="JOIN_DATE"    property="joinDate"/>
 		<result column="DEL_YN"    property="delYn"/>
+	</resultMap>
+	
+	<resultMap type="com.spring.biz.vo.LoginInfoVO" id="login">
+		<result column="MEMBER_ID"    property="memberId"/>
+		<result column="MEMBER_	NAME"    property="memberName"/>
+		<result column="STU_NUM"    property="stuNum"/>
+		<result column="INST_NUM"    property="instNum"/>
 	</resultMap>
 	
 	<insert id="insertMember">
@@ -25,6 +34,7 @@
 			, MEMBER_GENDER
 			, MEMBER_BIRTHDAY
 			, MEMBER_ADDR
+			, MEMBER_EMAIL
 			, MEMBER_TEL
 			, MEMBER_TEL2
 		)
@@ -35,6 +45,7 @@
 			, #{memberGender}
 			, #{memberBirthday}
 			, #{memberAddr}
+			, #{memberEmail}
 			, #{memberTel}
 			, #{memberTel2}
 		)
@@ -44,6 +55,18 @@
 		SELECT MEMBER_ID
 		FROM MEMBER_INFO
 		WHERE MEMBER_ID = #{memberId}
+	</select>
+	
+	<select id="loginInfo" resultMap="login">
+		SELECT M.MEMBER_ID
+			, MEMBER_NAME
+			, STU_NUM
+			, INST_NUM
+		FROM MEMBER_INFO M, STUDENT_INFO S, INSTRUCTOR_INFO I
+		WHERE M.MEMBER_ID = #{memberId}
+		AND MEMBER_PW = #{memberPw}
+		AND M.MEMBER_ID = S.MEMBER_ID
+		AND M.MEMBER_ID = I.MEMBER_ID
 	</select>
 </mapper>
 
