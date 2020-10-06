@@ -7,18 +7,41 @@
 	font-style: normal;
 }
 
-    .left {
-        width: 50%;
-        float: left;
-        box-sizing: border-box;
-        background: black;
-    }
-    .right {
-        width: 50%;
-        float: right;
-        box-sizing: border-box;
-        background: gray;
-    }
+/* 웹폰트 : 에스코어드림Reg체 */
+@font-face {
+	font-family: 'S-CoreDream-4Regular';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* 웹폰트 : 나눔스퀘어라운드체 */
+@font-face { 
+	font-family: 'NanumSquareRound'; 
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/NanumSquareRound.woff') format('woff'); 
+	font-weight: normal; 
+	font-style: normal;
+}
+
+.left {
+    width: 50%;
+    float: left;
+    box-sizing: border-box;
+}
+.right {
+    width: 50%;
+    float: right;
+    box-sizing: border-box;
+}
+
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    line-height: 200%;
+}
 
 
 

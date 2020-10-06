@@ -9,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Days+One&display=swap" rel="stylesheet">
 
 <!-- css를 사용하기 위한 태그 -->
-<link rel="stylesheet" type="text/css" href="resources/css/introPage.css?ver=2"/>
+<link rel="stylesheet" type="text/css" href="resources/css/introPage.css?ver=6"/>
 
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"/>
@@ -27,11 +27,20 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="col-md-offset-3 col-md-6">
-			<span style="font-family: 'Days One', sans-serif; font-size: 3em; color: #0034a9; font-weight: bold">Ulsan</span>
-			<span style="font-family: 'Days One', sans-serif; font-size: 3em; color: #ffcc00; font-weight: bold">&nbsp;KH</span>
-			<span style="font-family: 'Days One', sans-serif; font-size: 3em; color: gray; font-weight: bold">&nbsp;Sports Center</span>
-			<br>
-			<span style="font-family: 'S-CoreDream-5Medium'; font-size: 1.2em; color: #0034a9;">울산</span><span style="font-family: 'S-CoreDream-5Medium'; font-size: 1.2em; color: #ffcc00;">KH</span><span style="font-family: 'S-CoreDream-5Medium'; font-size: 1.2em; color: #0034a9;">스포츠센터</span><span style="font-family: 'S-CoreDream-5Medium'; font-size: 1.2em;">는, 수강생들이 가치 있는 미래를 창조해 갈 수 있도록 언제나 문이 활짝 열려져 있습니다.</span>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="left col-md-8">
+						<span style="font-family: 'Days One', sans-serif; font-size: 3em; color: #0034a9; font-weight: bold">Ulsan</span>
+						<span style="font-family: 'Days One', sans-serif; font-size: 3em; color: #ffcc00; font-weight: bold">&nbsp;KH</span>
+						<span style="font-family: 'Days One', sans-serif; font-size: 3em; color: #bbbbbb; font-weight: bold">&nbsp;Sports Center</span>
+						<br>
+						<span style="font-family: 'NanumSquareRound'; font-size: 1.5em; color: #0034a9;">울산</span><span style="font-family: 'NanumSquareRound'; font-size: 1.5em; color: #ffcc00;">KH</span><span style="font-family: 'NanumSquareRound'; font-size: 1.5em; color: #0034a9;">스포츠센터</span><span style="font-family: 'NanumSquareRound'; font-size: 1.5em; color: #666666;">는 수강생들이 건강하고 가치 있는 미래를<br>창조해 갈 수 있도록 언제나 문이 활짝 열려져 있습니다.</span>
+					</div>
+					<div class="right col-md-4" align="right">
+						<img src="resources/images/open.png" width="230px">
+					</div>
+				</div>
+			</div>
 			<hr style="border: 0.5px solid #0034a9;">
 		</div>
 	</div>
@@ -46,8 +55,35 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="col-md-offset-3 col-md-6">
-			<div class="left"></div>
-			<div class="right"></div>
+			<div class="left">
+				<br>
+				<p style="font-family: 'NanumSquareRound'; font-size: 1.2em; padding: 5px;">
+					&nbsp;2020년 10월 개관한 울산KH스포츠센터는 연건평 3,500여 평으로
+					국내 스포츠센터 중 가장 긴 50M 길이의 수영장을 보유하고 있습니다.
+					또한, 오토시스템을 갖춘 골프장 및 검도, 배드민턴, 농구 등
+					다양한 구기 스포츠가 가능한 실내체육관이 있습니다.
+					<br><br> 
+					&nbsp;그 외에도 요가, 재즈, 나이트댄스를 강습하는 스포츠교실
+					그리고 최고급형 헬스기구를 갖춘 헬스장과 하체강화 및
+					심폐지구력 증대를 위한 스피닝기구를 갖춘 GX-룸,
+					운동의 의학적 검진 및 상담을 위한 운동처방실 등을
+					갖추고 있습니다.
+					울산시민들의 복지시설로서 역할은 물론 지역
+					주민들의 건전한 여가 선용과 체력증진을 위한 공간으로서
+					기능을 위해 최선의 노력을 기울이고 있습니다.
+				</p>
+			</div>
+			<div class="right">
+				<br>
+				<p style="font-family: 'NanumSquareRound'; font-size: 1.2em; padding: 5px;">
+					&nbsp;시내 간선도로에 인접하고 있어 접근성이 용이하며 강습생을 위한
+					주차장 및 스낵바 등 부대시설이 마련되어 있으며,
+					아침 6시부터 저녁 10시까지 운영되고 있습니다.
+					<br><br>
+					&nbsp;언제나 쾌적하고 깨끗한 시설로서 차별화되고 다양한 강좌를 개설하여
+					이용하는 수강생들이 더욱 가치 있는 삶을 창조해 갈 수 있도록 하겠습니다.
+				</p>
+			</div>
 		</div>
 	</div>
 </div>

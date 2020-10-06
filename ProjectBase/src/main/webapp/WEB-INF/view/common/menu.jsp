@@ -1,36 +1,54 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="resources/css/menu.css?ver=22">
+<link rel="stylesheet" type="text/css" href="resources/css/menu.css?ver=26">
 </head>
 <body>
 <div style="height: 10px;"></div>
 <div class="col-md-12">
-	<div class="col-md-offset-3">
-		<table>
-			<colgroup>
-				<col width="40%"></col>
-				<col width="*"></col>
-				<col width="10%"></col>
-			</colgroup>
-			<tr>
-				<td></td>
-				<td></td>
-				<td style="text-align: right; font-family: 'S-CoreDream-4Regular';">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="col-md-8">
-								<a href="loginPage.do" class="loginA">LOGIN</a>&nbsp;<font style="color: #ffcc00; font-family: 'S-CoreDream-4Regular';">│</font>&nbsp;<a href="joinPage.do" class="joinA">JOIN</a>
-							</div>
-						</div>
+	<div class="col-md-offset-10">
+		<div class="row">
+			<c:if test="${empty sessionScope.loginInfo.memberId }">
+				<div class="col-md-12">
+					<div class="col-md-8" style="font-family: 'S-CoreDream-4Regular';">
+						<a href="loginPage.do" class="loginA">LOGIN</a>&nbsp;<font style="color: #ffcc00; font-family: 'S-CoreDream-4Regular';">│</font>&nbsp;<a href="joinPage.do" class="joinA">JOIN</a>
 					</div>
-				</td>
-			</tr>
-		</table>
+				</div>
+			</c:if>						
+			<c:choose>
+				<c:when test="${not empty sessionScope.loginInfo.memberId and sessionScope.loginInfo.stuNum ne 0}">
+					<div class="row" style="font-family: 'S-CoreDream-4Regular';">
+						<span style="font-weight: bold; color: white;">${sessionScope.loginInfo.memberName }</span><span style="color: white;">님(수강생) 반갑습니다.</span>
+						&nbsp;
+						<input type="button" class="myInfoBtn" value="내정보관리">
+						<input type="button" class="logoutBtn" value="로그아웃">
+					</div>
+				</c:when>
+				<c:when test="${not empty sessionScope.loginInfo.memberId and sessionScope.loginInfo.instNum ne 0}">
+					<div class="row" style="font-family: 'S-CoreDream-4Regular';">
+						<span style="font-weight: bold; color: white;">${sessionScope.loginInfo.memberName }</span><span style="color: white;">님(강사) 반갑습니다.</span>
+						&nbsp;
+						<input type="button" class="myInfoBtn" value="내정보관리">
+						<input type="button" class="logoutBtn" value="로그아웃">
+					</div>
+				</c:when>
+				<c:otherwise>
+					<c:if test="${not empty sessionScope.loginInfo.memberId }">
+						<div class="row" style="font-family: 'S-CoreDream-4Regular';">
+							<span style="font-weight: bold; color: white;">${sessionScope.loginInfo.memberName }</span><span style="color: white;">님 반갑습니다.</span>
+							&nbsp;
+							<input type="button" class="myInfoBtn" value="내정보관리">
+							<input type="button" class="logoutBtn" value="로그아웃">
+						</div>
+					</c:if>
+				</c:otherwise>
+			</c:choose>
+		</div>
 	</div>
 </div>
 <div style="height: 50px;"></div>
@@ -47,7 +65,7 @@
 				<a href="mainPage.do" class="mainMenuA">MAIN</a>
 			</li>&emsp;&emsp;&emsp;&emsp;
 			<li>
-				<a href="#" class="mainMenuA">센터안내</a>
+				<a href="introPage.do" class="mainMenuA">센터안내</a>
 				<ul class="subMenu">
 					<li><a href="introPage.do" class="subMenuA">센터소개</a></li>
 					<li><a href="b.do" class="subMenuA">시설현황</a></li>
@@ -101,17 +119,19 @@
 					<li><a href="y.do" class="subMenuA">강사지원</a></li>
 				</ul>	
 			</li>&emsp;&emsp;&emsp;&emsp;
-			<li>
-				<a href="#" class="mainMenuA" style="color: #ffcc00"><span class="glyphicon glyphicon-wrench"></span>&nbsp;관리자</a>
-				<ul class="subMenu">
-					<li><a href="adminA.do" class="subMenuA">회원관리</a></li>
-					<li><a href="adminB.do" class="subMenuA">강사관리</a></li>
-					<li><a href="insertLecture.do" class="subMenuA">강좌등록</a></li>
-					<li><a href="adminC.do" class="subMenuA">지원자관리</a></li>
-					<li><a href="adminD.do" class="subMenuA">대관관리</a></li>
-					<li><a href="adminE.do" class="subMenuA">게시판관리</a></li>
-				</ul>	
-			</li>&emsp;&emsp;&emsp;&emsp;
+			<c:if test="${sessionScope.loginInfo.memberId eq 'admin' }">
+				<li>
+					<a href="#" class="mainMenuA" style="color: #ffcc00"><span class="glyphicon glyphicon-wrench"></span>&nbsp;관리자</a>
+					<ul class="subMenu">
+						<li><a href="adminA.do" class="subMenuA">회원관리</a></li>
+						<li><a href="adminB.do" class="subMenuA">강사관리</a></li>
+						<li><a href="insertLecture.do" class="subMenuA">강좌등록</a></li>
+						<li><a href="adminC.do" class="subMenuA">지원자관리</a></li>
+						<li><a href="adminD.do" class="subMenuA">대관관리</a></li>
+						<li><a href="adminE.do" class="subMenuA">게시판관리</a></li>
+					</ul>	
+				</li>&emsp;&emsp;&emsp;&emsp;
+			</c:if>
 		</ul>
 	</nav>
 </div>
