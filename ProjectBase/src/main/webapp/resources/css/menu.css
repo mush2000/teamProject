@@ -98,10 +98,12 @@ input[type="button"].logoutBtn
 , input[type="button"].myInfoBtn{
 	background-color: #ffcc00;
 	color: #0034a9;
-	width: 75px;
+	width: 73px;
 	margin-right: 0;
 	padding: 0;
-	font-family: 'S-CoreDream-4Regular';
+	font-family:'S-CoreDream-3Light';
+	font-weight: bold;
+	font-size: 12px;
 }
 
 input[type="button"].logoutBtn:hover
@@ -109,7 +111,9 @@ input[type="button"].logoutBtn:hover
 	cursor: pointer;
 	background-color: #0034a9;
 	color: #ffcc00;
-	font-family: 'S-CoreDream-4Regular';
+	font-family:'S-CoreDream-3Light';
+	font-weight: bold;
+	font-size: 12px;
 }
 
 .loginA:link { color: #ffcc00; text-decoration: none;}
@@ -144,6 +148,14 @@ input[type="button"].logoutBtn:hover
 @font-face {
 	font-family: 'S-CoreDream-4Regular';
 	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* 웹폰트 : 에스코어드림Lt체 */
+@font-face {
+	font-family: 'S-CoreDream-3Light';
+	src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-3Light.woff') format('woff');
 	font-weight: normal;
 	font-style: normal;
 }

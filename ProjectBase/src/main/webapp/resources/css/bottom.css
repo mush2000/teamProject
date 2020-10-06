@@ -1,9 +1,11 @@
 @charset "UTF-8";
 table{
 	table-layout: fixed;
+	border-spacing: 0;
 }
-td{
-	height: 1px;	
+tr, td{
+	height: 1px;
+	border-spacing: 0;
 }
 
 .bottomMenuTr{

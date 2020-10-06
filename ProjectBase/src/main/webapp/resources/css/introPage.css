@@ -43,7 +43,9 @@ p {
     line-height: 200%;
 }
 
-
+div.introTab ul > li{
+	z-index: 1;	
+}
 
 
 

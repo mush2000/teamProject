@@ -47,7 +47,6 @@ input[type="button"]
 .bottomTd{
 	padding: 0;
 	margin: 0;
-	height: 279px;
 }
 
 table{
@@ -89,7 +88,7 @@ $.validator.addMethod('regx', function(value, element, regexpr){
 			</td>
 		</tr>
 		<tr style="margin-bottom: 0px;">
-			<td class="bottomTd" style="width: 100%; height: 279px;">
+			<td class="bottomTd" style="width: 100%;">
 				<tiles:insertAttribute name="foot" />
 			</td>
 		</tr>
