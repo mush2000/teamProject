@@ -92,10 +92,25 @@ ul.mainMenu > li{
 .titleName {
 	max-width: 100%;
 	height: auto;
-	position: fixed;
 }
 
+input[type="button"].logoutBtn
+, input[type="button"].myInfoBtn{
+	background-color: #ffcc00;
+	color: #0034a9;
+	width: 75px;
+	margin-right: 0;
+	padding: 0;
+	font-family: 'S-CoreDream-4Regular';
+}
 
+input[type="button"].logoutBtn:hover
+, input[type="button"].myInfoBtn:hover{
+	cursor: pointer;
+	background-color: #0034a9;
+	color: #ffcc00;
+	font-family: 'S-CoreDream-4Regular';
+}
 
 .loginA:link { color: #ffcc00; text-decoration: none;}
 .loginA:visited { color: #ffcc00; text-decoration: none;}
