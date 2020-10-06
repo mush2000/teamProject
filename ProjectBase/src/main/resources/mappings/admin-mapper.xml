@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 맵퍼파일 생성 후 반드시 sql-map-config.xml 파일에 mapper 등록해줘야 함 -->
+<mapper namespace="adminMapper">
+	<resultMap type="com.spring.biz.vo.ClassInfoVO" id="classInfo">
+		<result column="CLASS_NUM"    property="classNum"/>
+		<result column="CLASSES_CODE"    property="classesCode"/>
+		<result column="CLASS_TIME"    property="classTime"/>
+		<result column="CLASS_LV"    property="classLv"/>
+		<result column="CREATE_DATE"    property="createDate"/>
+		<result column="REG_START_DATE"    property="regStartDate"/>
+		<result column="REG_END_DATE"    property="regEndDate"/>
+		<result column="START_DATE"    property="startDate"/>
+		<result column="LOC_CODE"    property="locCode"/>
+		<result column="INST_NUM"    property="instNum"/>
+		<result column="CLASS_STATUS"    property="classStatus"/>
+		<result column="REG_MEMBER_CNT"    property="regMemberCnt"/>
+	</resultMap>
+	
+	<resultMap type="com.spring.biz.vo.ClassesVO" id="classes">
+		<result column="CLASSES_CODE"    property="classesCode"/>
+		<result column="CLASSES_NAME"    property="classesName"/>
+		<result column="CLASSES_FEE"    property="classesFee"/>
+		<result column="CLASSES_DETAIL"    property="classesDetail"/>
+		<result column="CLASSES_PIC"    property="classesPic"/>
+	</resultMap>
+	
+	<resultMap type="com.spring.biz.vo.ClassPlaceVO" id="classPlace">
+		<result column="PLACE_CODE"    property="placeCode"/>
+		<result column="PLACE_NAME"    property="placeName"/>
+		<result column="RETAL_PEE"    property="retalPee"/>
+		<result column="AVAILABLE"    property="available"/>
+	</resultMap>
+	
+	<resultMap type="com.spring.biz.vo.ClassTimeVO" id="classTime">
+		<result column="TIME_CODE"    property="timeCode"/>
+		<result column="CLASS_DAY"    property="classDay"/>
+		<result column="CLASS_TIME"    property="classTime"/>
+	</resultMap>
+	
+	<resultMap type="com.spring.biz.vo.InstructorInfoVO" id="instructorInfo">
+		<result column="INST_NUM"    property="instNum"/>
+		<result column="MEMBER_ID"    property="memberId"/>
+		<result column="REG_NUM"    property="regNum"/>
+		<result column="CAREER"    property="carrer"/>
+		<result column="LICENSE"    property="license"/>
+		<result column="INST_POS"    property="instPos"/>
+		<result column="SALARY"    property="salary"/>
+		<result column="PICTURE"    property="picture"/>
+	</resultMap>
+	
+	<resultMap type="com.spring.biz.vo.ClassLevelVO" id="classLevel">
+		<result column="LEVEL_CODE"    property="levelCode"/>
+		<result column="CLASSES_CODE"    property="classesCode"/>
+		<result column="LEVEL_NAME"    property="levelName"/>
+		<result column="LEVEL_DETAIL"    property="levelDetail"/>
+	</resultMap>
+	
+	<resultMap type="com.spring.biz.vo.ClassStatusVO" id="classStatus">
+		<result column="CLASS_STATUS_CODE"    property="classStatusCode"/>
+		<result column="CLASS_STATUS"    property="classStatus"/>
+	</resultMap>
+	
+	<select id="selectClasses" resultMap="classes">
+		SELECT CLASSES_CODE
+		        , CLASSES_NAME
+		        , CLASSES_FEE
+		        , CLASSES_DETAIL
+		        , CLASSES_PIC
+		FROM CLASSES
+	</select>
+	
+	<select id="selectClassPlace" resultMap="classPlace">
+		SELECT PLACE_CODE
+		        , PLACE_NAME
+		        , RETAL_PEE
+		        , AVAILABLE
+		FROM CLASS_PLACE
+	</select>
+	
+	<select id="selectClassTime" resultMap="classTime">
+		SELECT TIME_CODE
+		        , CLASS_DAY
+		        , CLASS_TIME
+		FROM CLASS_TIME
+	</select>
+	
+	<select id="selectInstructorInfo" resultMap="instructorInfo">
+		SELECT INST_NUM
+		        , MEMBER_ID
+		        , REG_NUM
+		        , CAREER
+		        , LICENSE
+		        , INST_POS
+		        , SALARY
+		        , PICTURE
+		FROM INSTRUCTOR_INFO
+	</select>
+	
+	<select id="selectClassLevel" resultMap="classLevel">
+		SELECT LEVEL_CODE
+		        , CLASSES_CODE
+		        , LEVEL_NAME
+		        , LEVEL_DETAIL
+		FROM CLASS_LEVEL
+	</select>
+	
+	<select id="selectClassStatus" resultMap="classStatus">
+		SELECT CLASS_STATUS_CODE
+		        , CLASS_STATUS
+		FROM  CLASS_STATUS
+	</select>
+	
+	<insert id="insertLecture">
+		INSERT INTO CLASS_INFO(
+		    CLASS_NUM
+		    , CLASSES_CODE
+		    , CLASS_TIME
+		    , CLASS_LV
+		    , REG_START_DATE
+		    , REG_END_DATE
+		    , START_DATE
+		    , LOC_CODE
+		    , INST_NUM
+		    , CLASS_STATUS
+		    , REG_MEMBER_CNT
+		) VALUES (
+		    (SELECT NVL(MAX(CLASS_NUM)+1,1) FROM CLASS_INFO)
+		    , #{classesCode}
+		    , #{classTime}
+		    , #{classLv}
+		    , #{regStartDate}
+		    , #{regEndDate}
+		    , #{startDate}
+		    , #{locCode}
+		    , #{instNum}
+		    , #{class_status}
+		    , #{regMemberCnt}
+		
+		);
+	</insert>
+	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,6 +6,7 @@
 	<mappers>
 		<mapper resource="/mappings/sample-mapper.xml"/>
 		<mapper resource="/mappings/member-mapper.xml"/>
+		<mapper resource="/mappings/admin-mapper.xml"/>
 	</mappers>
 </configuration>
 
