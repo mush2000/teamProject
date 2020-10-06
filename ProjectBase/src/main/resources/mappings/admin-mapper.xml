@@ -9,14 +9,14 @@
 		<result column="CLASSES_CODE"    property="classesCode"/>
 		<result column="CLASS_TIME"    property="classTime"/>
 		<result column="CLASS_LV"    property="classLv"/>
-		<result column="CREATE_DATE"    property="createDate"/>
+		<result column="START_DATE"    property="startDate"/>
 		<result column="REG_START_DATE"    property="regStartDate"/>
 		<result column="REG_END_DATE"    property="regEndDate"/>
-		<result column="START_DATE"    property="startDate"/>
 		<result column="LOC_CODE"    property="locCode"/>
 		<result column="INST_NUM"    property="instNum"/>
 		<result column="CLASS_STATUS"    property="classStatus"/>
 		<result column="REG_MEMBER_CNT"    property="regMemberCnt"/>
+		<result column="CREATE_DATE"    property="createDate"/>
 	</resultMap>
 	
 	<resultMap type="com.spring.biz.vo.ClassesVO" id="classes">
@@ -136,10 +136,10 @@
 		    , #{startDate}
 		    , #{locCode}
 		    , #{instNum}
-		    , #{class_status}
+		    , #{classStatus}
 		    , #{regMemberCnt}
 		
-		);
+		)
 	</insert>
 	
 </mapper>

@@ -1,32 +1,31 @@
 package com.spring.biz.vo;
 
-import java.util.Date;
 
 public class ClassInfoVO {
 	private int classNum; // primary key
 	private int classesCode; // O
 	private int classTime; // O
 	private int classLv; // O
-	private Date createDate; // default sysdate
-	private Date regStartDate; // O
-	private Date regEndDate; // O
-	private Date startDate; // O
+	private String createDate; // default sysdate
+	private String startDate; // O
+	private String regStartDate; // O
+	private String regEndDate; // O
 	private int locCode; // O
 	private int instNum; // O
 	private int classStatus;
 	private int regMemberCnt;
 	
 	
-	public Date getRegStartDate() {
+	public String getRegStartDate() {
 		return regStartDate;
 	}
-	public void setRegStartDate(Date regStartDate) {
+	public void setRegStartDate(String regStartDate) {
 		this.regStartDate = regStartDate;
 	}
-	public Date getRegEndDate() {
+	public String getRegEndDate() {
 		return regEndDate;
 	}
-	public void setRegEndDate(Date regEndDate) {
+	public void setRegEndDate(String regEndDate) {
 		this.regEndDate = regEndDate;
 	}
 	public int getClassNum() {
@@ -53,16 +52,16 @@ public class ClassInfoVO {
 	public void setClassLv(int classLv) {
 		this.classLv = classLv;
 	}
-	public Date getCreateDate() {
+	public String getCreateDate() {
 		return createDate;
 	}
-	public void setCreateDate(Date createDate) {
+	public void setCreateDate(String createDate) {
 		this.createDate = createDate;
 	}
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
 	public int getLocCode() {

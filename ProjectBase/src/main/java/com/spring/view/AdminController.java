@@ -60,13 +60,12 @@ public class AdminController {
 	}
 	
 	@ResponseBody //ajax 로 만듬
-	@RequestMapping(value = "/insertLecture1.do")
+	@RequestMapping(value = "/insertLecture2.do")
 	public int insertLecture(ClassInfoVO classInfoVO) {
 		int result = adminService.insertLecture(classInfoVO);
-		
-		
-		
 		return result;
+		
+		
 	}
 	
 	

@@ -12,16 +12,13 @@ $(document).ready(function(){
 		var instNum = $('#instNum').val();
 		var classLv = $('#classLv').val();
 		var classStatus = $('#classStatus').val();
-		
-		
-		
 		//Ajax 시작
 		$.ajax({
-		      url: 'insertLecture.do', //요청경로
+		      url: 'insertLecture2.do', //요청경로
 		      type: 'post',
-		      data: {'classesCode':classesCode, 'locCode':locCode, 'classTime':classTime
-		    	  , 'startDate':startDate, 'regStartDate':regStartDate, 'regEndDate':regEndDate
-		    	  , 'instNum':instNum, 'classLv':classLv, 'classStatus':classStatus }, 
+		      data: {'classesCode':classesCode, 'locCode':locCode, 'classTime':classTime,
+		    	  'startDate':startDate, 'regStartDate':regStartDate, 'regEndDate':regEndDate,
+		    	  'instNum':instNum, 'classLv':classLv, 'classStatus':classStatus }, 
 		    	  //요청경로로 던질 파라메터. '파레메터명':파라메터
 		      success: function(result) { // ajax 통신 성공 시 실행부분. result가 결과 데이터를 가진다.
 		       alert('Lecture 등록 성공')

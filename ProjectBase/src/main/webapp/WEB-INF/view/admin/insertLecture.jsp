@@ -48,15 +48,15 @@
 					</select>
 				</td>
 				<td> <!-- 과목 시간  -->
-					<select name="classTime" id="locCode"> 
+					<select name="classTime" id="classTime"> 
 					<c:forEach items="${classTimeList }" var="classTime">
 						<option value="${classTime.timeCode }">요일 : ${classTime.classDay }, 시간 : ${classTime.classTime }</option>
 					</c:forEach>
 					</select>
 				</td>
-				<td><!-- 모집일  --><input name="regStartDate" id="startDate" type="date" value="${sysdate }" min="${sysdate }"></td>
-				<td><!-- 마감일  --><input name="regEndDate" id="regStartDate" type="date" value="${sysdate }" min="${sysdate }"></td>
-				<td><!-- 개강일  --><input name="startDate" id="regEndDate" type="date" value="${sysdate }" min="${sysdate }"></td>
+				<td><!-- 모집일  --><input name="regStartDate" id="regStartDate" type="date" value="${sysdate }" min="${sysdate }"></td>
+				<td><!-- 마감일  --><input name="regEndDate" id="regEndDate" type="date" value="${sysdate }" min="${sysdate }"></td>
+				<td><!-- 개강일  --><input name="startDate" id="startDate" type="date" value="${sysdate }" min="${sysdate }"></td>
 				<td>
 					<select name="instNum" id="instNum">
 					<c:forEach items="${instructorInfoList }" var="instructorInfo">
@@ -84,6 +84,6 @@
 			</tr>
 		</tbody>
 	</table>
-<script src="resources/js/insertLecture.js?ver=5"></script>
+<script src="resources/js/insertLecture.js?ver=1"></script>
 </body>
 </html>
