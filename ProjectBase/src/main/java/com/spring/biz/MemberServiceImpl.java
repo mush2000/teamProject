@@ -32,8 +32,29 @@ public class MemberServiceImpl implements MemberService{
 			vo = sqlSession.selectOne("loginStudentInfo", memberVO);
 			if (vo != null)
 				loginInfoVO.setStuNum(vo.getStuNum());
+		} else {
+			loginInfoVO = new LoginInfoVO();
+			loginInfoVO.setWrongId(sqlSession.selectOne("checkId", memberVO) == null);
+			if(!loginInfoVO.isWrongId())
+				sqlSession.update("wrongPw", memberVO);
 		}
 		return loginInfoVO;
+	}
+
+	@Override
+	public int checkWrongPwCnt(MemberVO memberVO) {
+		return sqlSession.selectOne("checkWrongPwCnt", memberVO);
+	}
+
+	@Override
+//	@Transactional(rollbackFor = Exception.class)
+	public String searchPw(MemberVO memberVO) {
+		return sqlSession.selectOne("searchPw", memberVO);
+	}
+
+	@Override
+	public int newPw(MemberVO memberVO) {
+		return sqlSession.update("newPw", memberVO);
 	}
 
 	

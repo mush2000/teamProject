@@ -52,7 +52,7 @@
 	<input type="hidden" name="memberEmail" id="memberEmail">
 	<input type="text" placeholder="email" name="memberEmailId" id="memberEmail1">@
 	<input type="text" placeholder="email" name="memberEmailUri" id="memberEmail2">
-	<select class="emailUri">
+	<select id="emailUri">
 		<option value="inputUri" selected>직접입력</option>
 		<option value="naver.com">네이버</option>
 		<option value="hanmail.net">다음</option>

@@ -25,12 +25,13 @@
 <!-- sample.css 파일 사용을 위한 태그 -->
 
 <!-- smaple.js를 사용하기 위한 태그 -->
-<script src="resources/js/loginFail.js"></script>
+<script src="resources/js/loginFail.js?ver=2"></script>
 
 
 </head>
 <body>
 <div>로그인실패.</div>
+<input type="hidden" value="${wrongId }" id="wrongId">
 
 </body>
 </html>

@@ -213,17 +213,17 @@ $(document).ready(function(){
 			},
 		},
         //유효성검사 실패시 메시지 출력방식을 설정
-		errorPlacement: function(error, element){
-			error.insertAfter(element);
-		},
+//		errorPlacement: function(error, element){
+//			error.insertAfter(element);
+//		},
 		errorPlacement : function(error, element) {
 			var n = element.attr("name");
 			if (n == "memberTel1_2" || n == "memberTel1_3")
 				error.insertAfter("#memberTel1_3");
 			else if (n == "memberTel2_2" || n == "memberTel2_3")
 				error.insertAfter("#memberTel2_3");
-//			else if (n == "phoneNum2" || n == "phoneNum3")
-//				error.insertAfter("#phoneNum3");
+			else if (n == "memberEmailId" || n == "memberEmailUri")
+				error.insertAfter("#emailUri");
 			else
 				error.insertAfter(element);
 		},
@@ -263,7 +263,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$(document).on('change', '.emailUri', function() {
+	$(document).on('change', '#emailUri', function() {
 		if($(this).val() == 'inputUri') {
 			$(this).prev().attr('readonly',false);
 			$(this).prev().val('');

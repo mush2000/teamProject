@@ -9,6 +9,12 @@ public interface MemberService {
 	String checkId(String memberId);
 	
 	LoginInfoVO login(MemberVO memberVO);
+	
+	int checkWrongPwCnt(MemberVO memberVO);
+	
+	String searchPw(MemberVO memberVO);
+	
+	int newPw(MemberVO memberVO);
 
 }
 

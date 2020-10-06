@@ -51,8 +51,14 @@
 		)
 	</insert>
 	
-	<select id="checkId" resultType="String">
+ 	<select id="checkId" resultType="String">
 		SELECT MEMBER_ID
+		FROM MEMBER_INFO
+		WHERE MEMBER_ID = #{memberId}
+	</select>
+	
+ 	<select id="checkWrongPwCnt" resultType="int">
+		SELECT WRONG_PW_CNT
 		FROM MEMBER_INFO
 		WHERE MEMBER_ID = #{memberId}
 	</select>
@@ -76,6 +82,27 @@
 		FROM INSTRUCTOR_INFO
 		WHERE MEMBER_ID = #{memberId}
 	</select>
+	
+	<update id="wrongPw">
+		UPDATE MEMBER_INFO
+		SET WRONG_PW_CNT = WRONG_PW_CNT + 1
+		WHERE MEMBER_ID = #{memberId}
+	</update>
+	
+	<select id="searchPw" resultType="String">
+		SELECT MEMBER_ID
+		FROM MEMBER_INFO
+		WHERE MEMBER_ID = #{memberId}
+		AND MEMBER_NAME = #{memberName}
+		AND MEMBER_EMAIL = #{memberEmail}
+	</select>
+	
+	<update id="newPw">
+		UPDATE MEMBER_INFO
+		SET MEMBER_PW = #{memberPw}
+			, WRONG_PW_CNT = 0
+		WHERE MEMBER_ID = #{memberId}
+	</update>
 </mapper>
 
 

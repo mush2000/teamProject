@@ -5,7 +5,7 @@ public class LoginInfoVO {
 	private String memberName;
 	private int stuNum;
 	private int instNum;
-	private String causeOfFail;
+	private boolean wrongId;
 	
 	public String getMemberId() {
 		return memberId;
@@ -31,16 +31,17 @@ public class LoginInfoVO {
 	public void setInstNum(int instNum) {
 		this.instNum = instNum;
 	}
-	public String getCauseOfFail() {
-		return causeOfFail;
+	public boolean isWrongId() {
+		return wrongId;
 	}
-	public void setCauseOfFail(String causeOfFail) {
-		this.causeOfFail = causeOfFail;
+	public void setWrongId(boolean wrongId) {
+		this.wrongId = wrongId;
 	}
 	
 	@Override
 	public String toString() {
 		return "LoginInfoVO [memberId=" + memberId + ", memberName=" + memberName + ", stuNum=" + stuNum + ", instNum="
-				+ instNum + ", causeOfFail=" + causeOfFail + "]";
+				+ instNum + ", wrongId=" + wrongId + "]";
 	}
+	
 }

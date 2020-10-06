@@ -74,12 +74,10 @@ $(document).ready(function(){
 
 	//});
 	$(document).on('click', '#searchPw', function() {
-		alert(123);
 		location.href='searchPwPage.do';
 	});
 	
 	$(document).on('click', '#searchId', function() {
-		alert(333);
 		location.href='searchIdPage.do';
 	});
 

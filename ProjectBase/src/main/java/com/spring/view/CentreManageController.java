@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.spring.biz.MemberService;
 import com.spring.biz.vo.LoginInfoVO;
 import com.spring.biz.vo.MemberVO;
+import com.spring.mail.SendEmail;
 
 import java.io.BufferedReader;
 //import java.io.InputStream;
@@ -31,8 +32,7 @@ import java.net.URL;
 //import java.net.URLConnection;
 import java.net.URLEncoder;
 //import java.util.List;
-
-
+import java.util.Random;
 
 @Controller
 public class CentreManageController {
@@ -57,13 +57,23 @@ public class CentreManageController {
 	
 	@RequestMapping(value = "/loginMember.do")
 	public String loginMember(MemberVO memberVO, Model model, HttpSession session) {
+		try {
+			if(memberService.checkWrongPwCnt(memberVO) > 4) {
+				model.addAttribute("wrongId", "5times");
+				return "member/loginFail";
+			}
+		} catch (NullPointerException ne) {
+			ne.printStackTrace();
+		}
 		LoginInfoVO vo = memberService.login(memberVO);
-		if (vo != null) {
+		if (vo.getMemberId() != null) {
 			session.setAttribute("loginInfo", vo);
 			System.out.println(vo);
 			return "redirect:mainPage.do";
-		} else
+		} else {
+			model.addAttribute("wrongId", vo.isWrongId());
 			return "member/loginFail";
+		}
 	}
 	
 	@RequestMapping(value = "/searchPwPage.do")
@@ -74,6 +84,22 @@ public class CentreManageController {
 	@RequestMapping(value = "/searchPw.do")
 	public String searchPw(MemberVO memberVO, Model model) {
 		System.out.println("비번찾기");
+		System.out.println(memberVO);
+		String memberId = memberService.searchPw(memberVO);
+		if(memberId == null) {
+			System.out.println("일치하는 회원이 없습니다.");
+//			return "member/failSearchPw";
+		} else {
+			int num = new Random().nextInt(11) + 8;
+			String newPw = "";
+			for (int i = 0; i < num; i++) {
+				int ch = new Random().nextInt(94) + 33;
+				newPw += (char)ch;
+			}
+			SendEmail se = new SendEmail();
+			se.testMailSend(memberVO.getMemberName(), memberVO.getMemberEmail(), newPw);
+//			memberService.newPw(memberVO);
+		}
 		return "redirect:loginPage.do";
 	}
 	
@@ -87,6 +113,7 @@ public class CentreManageController {
 	@ResponseBody
 	@RequestMapping(value = "/checkId.do")
 	public int checkId(String memberId) {
+		System.out.println(memberService.checkId(memberId));
 		return memberService.checkId(memberId) != null ? 1 : 0;
 	}
 
