@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" type="text/css" href="resources/css/menu.css?ver=18"/>
+<link rel="stylesheet" type="text/css" href="resources/css/menu.css?ver=22">
 </head>
 <body>
 <div style="height: 10px;"></div>
@@ -21,16 +21,26 @@
 				<td></td>
 				<td></td>
 				<td style="text-align: right; font-family: 'S-CoreDream-4Regular';">
-					<a href="loginPage.do" class="loginA">LOGIN</a>
-					&emsp;<font style="color: #ffcc00; font-family: 'S-CoreDream-4Regular';">│</font>&emsp;
-					<a href="joinPage.do" class="joinA">JOIN</a>
+					<div class="row">
+						<div class="col-md-12">
+							<div class="col-md-8">
+								<a href="loginPage.do" class="loginA">LOGIN</a>&nbsp;<font style="color: #ffcc00; font-family: 'S-CoreDream-4Regular';">│</font>&nbsp;<a href="joinPage.do" class="joinA">JOIN</a>
+							</div>
+						</div>
+					</div>
 				</td>
 			</tr>
 		</table>
 	</div>
 </div>
-<div style="height: 200px;"></div>
-<div style="width:100%; height:100%;" class="col-md-offset-1">
+<div style="height: 50px;"></div>
+<div class="col-md-12">
+	<div class="col-md-offset-4 col-md-6 titleNameDiv">
+		<img class="titleName" src="resources/images/title_name.png" onclick="location.href='mainPage.do';">
+	</div>
+</div>
+<div style="height: 145px;"></div>
+<div style="width:100%; height:100%;" class="col-md-offset-1" align="center">
 	<nav style="font-size: 16px; font-family: 'S-CoreDream-5Medium';">
 		<ul class="mainMenu" >
 			<li>

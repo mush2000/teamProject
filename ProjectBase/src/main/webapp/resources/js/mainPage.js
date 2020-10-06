@@ -2,7 +2,7 @@
 $(document).ready(function(){
 	$('.carousel').carousel({
 		  interval: 3000
-		})
+	})
 });
 
 /* 함수선언 영역*/

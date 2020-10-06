@@ -28,9 +28,6 @@ label.error{
 	width: 100%;
 	height: 100%
 }
-.tempMenuTd:hover{
-	cursor: pointer;
-}
 
 /* 버튼css */
 input[type="button"]
@@ -75,7 +72,7 @@ $.validator.addMethod('regx', function(value, element, regexpr){
 <div class="myContainer">
 	<table class="template" style="width: auto; height: auto; position: absolute;">
 		<tr>
-			<td class="tempMenuTd" style="width:100%; height: 250px; background-color: #003aae; background-repeat: no-repeat; background-image: url('resources/images/menu3.jpg'); text-align: center; border-bottom: 1px solid lightgray;" onclick="location.href='mainPage.do';"><tiles:insertAttribute name="menu" /></td>
+			<td class="tempMenuTd" style="width:100%; height: 250px; background-color: #003aae; background-repeat: no-repeat; background-image: url('resources/images/title_back.png'); border-bottom: 1px solid lightgray;"><tiles:insertAttribute name="menu" /></td>
 		</tr>
 		<tr>
 			<td>

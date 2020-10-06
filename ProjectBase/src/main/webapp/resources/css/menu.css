@@ -81,6 +81,21 @@ ul.mainMenu > li{
 	z-index: 6; 
 }
 
+.titleName:hover{
+	cursor: pointer;
+}
+
+.titleNameDiv {
+	width: 60%;
+} 
+
+.titleName {
+	max-width: 100%;
+	height: auto;
+	position: fixed;
+}
+
+
 
 .loginA:link { color: #ffcc00; text-decoration: none;}
 .loginA:visited { color: #ffcc00; text-decoration: none;}
