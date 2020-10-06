@@ -6,7 +6,7 @@
 <mapper namespace="memberMapper">
 	<resultMap type="com.spring.biz.vo.MemberVO" id="member">
 		<result column="MEMBER_ID"    property="memberId"/>
-		<result column="MEMBER_	NAME"    property="memberName"/>
+		<result column="MEMBER_NAME"    property="memberName"/>
 		<result column="MEMBER_PW"    property="memberPw"/>
 		<result column="WRONG_PW_CNT"    property="wrongPwCnt"/>
 		<result column="MEMBER_GENDER"    property="memberGender"/>
@@ -21,7 +21,7 @@
 	
 	<resultMap type="com.spring.biz.vo.LoginInfoVO" id="login">
 		<result column="MEMBER_ID"    property="memberId"/>
-		<result column="MEMBER_	NAME"    property="memberName"/>
+		<result column="MEMBER_NAME"    property="memberName"/>
 		<result column="STU_NUM"    property="stuNum"/>
 		<result column="INST_NUM"    property="instNum"/>
 	</resultMap>
@@ -57,16 +57,24 @@
 		WHERE MEMBER_ID = #{memberId}
 	</select>
 	
-	<select id="loginInfo" resultMap="login">
-		SELECT M.MEMBER_ID
+	<select id="loginMemberInfo" resultMap="login">
+		SELECT MEMBER_ID
 			, MEMBER_NAME
-			, STU_NUM
-			, INST_NUM
-		FROM MEMBER_INFO M, STUDENT_INFO S, INSTRUCTOR_INFO I
-		WHERE M.MEMBER_ID = #{memberId}
+		FROM MEMBER_INFO
+		WHERE MEMBER_ID = #{memberId}
 		AND MEMBER_PW = #{memberPw}
-		AND M.MEMBER_ID = S.MEMBER_ID
-		AND M.MEMBER_ID = I.MEMBER_ID
+	</select>
+	
+	<select id="loginStudentInfo" resultMap="login">
+		SELECT STU_NUM
+		FROM STUDENT_INFO
+		WHERE MEMBER_ID = #{memberId}
+	</select>
+	
+	<select id="loginInstructorInfo" resultMap="login">
+		SELECT INST_NUM
+		FROM INSTRUCTOR_INFO
+		WHERE MEMBER_ID = #{memberId}
 	</select>
 </mapper>
 

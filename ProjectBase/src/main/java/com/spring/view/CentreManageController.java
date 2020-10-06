@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletRequest;
 //import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.spring.biz.MemberService;
+import com.spring.biz.vo.LoginInfoVO;
 import com.spring.biz.vo.MemberVO;
 
 import java.io.BufferedReader;
@@ -54,8 +56,30 @@ public class CentreManageController {
 	}
 	
 	@RequestMapping(value = "/loginMember.do")
-	public String loginMember(MemberVO memberVO, Model model) {
-		return "redirect:mainPage.do";
+	public String loginMember(MemberVO memberVO, Model model, HttpSession session) {
+		LoginInfoVO vo = memberService.login(memberVO);
+		if (vo != null) {
+			session.setAttribute("loginInfo", vo);
+			System.out.println(vo);
+			return "redirect:mainPage.do";
+		} else
+			return "member/loginFail";
+	}
+	
+	@RequestMapping(value = "/searchPwPage.do")
+	public String searchPwPage(MemberVO memberVO, Model model) {
+		return "member/searchPw";
+	}
+	
+	@RequestMapping(value = "/searchPw.do")
+	public String searchPw(MemberVO memberVO, Model model) {
+		System.out.println("비번찾기");
+		return "redirect:loginPage.do";
+	}
+	
+	@RequestMapping(value = "/searchIdPage.do")
+	public String searchIdPage(MemberVO memberVO, Model model) {
+		return "member/searchId";
 	}
 	
 	
@@ -70,16 +94,14 @@ public class CentreManageController {
 	@RequestMapping(value = "/getAddrApi.do")
 	public void getAddrApi(HttpServletRequest req, ModelMap model, HttpServletResponse response) throws Exception {
 	//public String getAddrApi(String currentPage, String keyword, ModelMap model, HttpServletResponse response) throws Exception {
-		// �슂泥�蹂��닔 �꽕�젙
-		String currentPage = req.getParameter("currentPage"); // �슂泥� 蹂��닔 �꽕�젙 (�쁽�옱 �럹�씠吏�. currentPage : n > 0)
+		String currentPage = req.getParameter("currentPage"); // (currentPage : n > 0)
 		System.out.println(currentPage);
-//		String countPerPage = req.getParameter("countPerPage"); // �슂泥� 蹂��닔 �꽕�젙 (�럹�씠吏��떦 異쒕젰 媛쒖닔. countPerPage 踰붿쐞 : 0 < n <=
-																// 100)
-//		String resultType = req.getParameter("resultType"); // �슂泥� 蹂��닔 �꽕�젙 (寃��깋寃곌낵�삎�떇 �꽕�젙, json)
-//		String confmKey = req.getParameter("confmKey"); // �슂泥� 蹂��닔 �꽕�젙 (�듅�씤�궎)
-		String keyword = req.getParameter("keyword"); // �슂泥� 蹂��닔 �꽕�젙 (�궎�썙�뱶)
+//		String countPerPage = req.getParameter("countPerPage"); // (countPerPage : 0 < n <= 100)
+//		String resultType = req.getParameter("resultType"); //(json)
+//		String confmKey = req.getParameter("confmKey");
+		String keyword = req.getParameter("keyword");
 //		String  
-		// OPEN API �샇異� URL �젙蹂� �꽕�젙
+		// OPEN API
 //		String apiUrl = "http://www.juso.go.kr/addrlink/addrLinkApi.do?currentPage=" + currentPage + "&countPerPage="
 //				+ countPerPage + "&keyword=" + URLEncoder.encode(keyword, "UTF-8") + "&confmKey=" + confmKey
 //				+ "&resultType=" + resultType;
@@ -94,12 +116,12 @@ public class CentreManageController {
 			tempStr = br.readLine();
 			if (tempStr == null)
 				break;
-			sb.append(tempStr); // �쓳�떟寃곌낵 JSON ���옣
+			sb.append(tempStr); // JSON
 		}
 		br.close();
 		response.setCharacterEncoding("UTF-8");
 		response.setContentType("text/xml");
-		response.getWriter().write(sb.toString()); // �쓳�떟寃곌낵 諛섑솚
+		response.getWriter().write(sb.toString());
 //		System.out.println(sb.toString());
 //		return sb.toString();
 	}

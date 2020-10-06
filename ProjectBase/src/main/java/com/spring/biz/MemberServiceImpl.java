@@ -24,7 +24,16 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public LoginInfoVO login(MemberVO memberVO) {
-		return sqlSession.selectOne("loginInfo", memberVO);
+		LoginInfoVO loginInfoVO = sqlSession.selectOne("loginMemberInfo", memberVO);
+		if(loginInfoVO != null) {
+			LoginInfoVO vo = sqlSession.selectOne("loginInstructorInfo", memberVO);
+			if (vo != null)
+				loginInfoVO.setInstNum(vo.getInstNum());
+			vo = sqlSession.selectOne("loginStudentInfo", memberVO);
+			if (vo != null)
+				loginInfoVO.setStuNum(vo.getStuNum());
+		}
+		return loginInfoVO;
 	}
 
 	

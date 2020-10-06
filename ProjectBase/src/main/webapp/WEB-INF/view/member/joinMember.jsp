@@ -25,7 +25,7 @@
 	<input type="text" placeholder="name" name="memberName"><br>
 	<input type="date" placeholder="birthday" name="memberBirthday" value="2000-01-01"><br>
 	<input type="text" placeholder="addr" id="memberAddr1" style="width: 40em;" readonly><br>
-	<input type="text" placeholder="나머지 주소" id="memberAddr2" style="width: 40em;" readonly><br>
+	<input type="text" placeholder="나머지 주소" name="memberAddr1" id="memberAddr2" style="width: 40em;" readonly><br>
 	<input type="hidden" name="memberAddr" id="memberAddr">
 	<select id="memberTel1_1">
 		<option>010</option>
@@ -36,8 +36,8 @@
 		<option>019</option>
 	</select>-
 	<input type="hidden" name="memberTel" id="memberTel">
-	<input type="text" id="memberTel1_2" class="inputTel">-<!--  onkeyup="inputCnt();">- -->
-	<input type="text" id="memberTel1_3" class="inputTel"><br>
+	<input type="text" name="memberTel1_2" id="memberTel1_2" class="inputTel">-<!--  onkeyup="inputCnt();">- -->
+	<input type="text" name="memberTel1_3" id="memberTel1_3" class="inputTel"><br>
 	<select id="memberTel2_1">
 		<option>010</option>
 		<option>011</option>
@@ -47,11 +47,11 @@
 		<option>019</option>
 	</select>-
 	<input type="hidden" name="memberTel2" id="memberTel2">
-	<input type="text" id="memberTel2_2" class="inputTel">-
-	<input type="text" id="memberTel2_3" class="inputTel"><br>
+	<input type="text" name="memberTel2_2" id="memberTel2_2" class="inputTel">-
+	<input type="text" name="memberTel2_3" id="memberTel2_3" class="inputTel"><br>
 	<input type="hidden" name="memberEmail" id="memberEmail">
-	<input type="text" placeholder="email" id="memberEmail1">@
-	<input type="text" placeholder="email" id="memberEmail2">
+	<input type="text" placeholder="email" name="memberEmailId" id="memberEmail1">@
+	<input type="text" placeholder="email" name="memberEmailUri" id="memberEmail2">
 	<select class="emailUri">
 		<option value="inputUri" selected>직접입력</option>
 		<option value="naver.com">네이버</option>

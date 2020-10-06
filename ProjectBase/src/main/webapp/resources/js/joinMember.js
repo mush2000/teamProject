@@ -30,7 +30,7 @@ $(document).ready(function(){
 //			chkMemberId : 'memberId chkId',
 			//emergencyPhoneNum : 'emergencyPhoneNum2 emergencyPhoneNum3',
 			//phoneNum : 'phoneNum2 phoneNum3'
-//		},
+//		},groups:{
 		rules : {
           // className:{
           //    required : true             //필수여부 지정
@@ -50,9 +50,9 @@ $(document).ready(function(){
 			
 			memberPw:{
 				required : true,
-				minlength : 6,
+				minlength : 8,
 				maxlength : 18,
-				regx:/^[a-zA-Z0-9]*$/i //영어&숫자만
+				regx:/(?=.*\d{1,50})(?=.*[~`!@#$%\^&*()-+=]{1,50})(?=.*[a-zA-Z]{2,50}).{8,50}$/ //영어2숫자1기호1 전체8자이상
 			},
 			
 			memberRepeatPw:{
@@ -73,28 +73,51 @@ $(document).ready(function(){
 				regx:/^0[0-9]*$/i*/
 			},
 						
-			memberAddr:{
+			memberAddr1:{
 				required : true,
 				minlength : 5,
 				maxlength : 50,
 				//regx:/^0[0-9]*$/i
 			},
 			
-			memberTel:{
+			memberTel1_2:{
 				required : true,
-				minlength : 10,
-				maxlength : 11,
-				regx:/^0[0-9]*$/i
+				minlength : 3,
+				maxlength : 4,
+				digits : true,
+//				regx:/^0[0-9]*$/i
 			},
 			
-			memberTel2:{
-				minlength : 10,
-				maxlength : 11,
-				regx:/^0[0-9]*$/i
+			memberTel1_3:{
+				required : true,
+				minlength : 4,
+				maxlength : 4,
+				digits : true,
+//				regx:/^0[0-9]*$/i
 			},
 			
-			memberEmail:{
+			memberTel2_2:{
+				minlength : 3,
+				maxlength : 4,
+				digits : true,
+//				regx:/^0[0-9]*$/i
+			},
+			
+			memberTel2_3:{
+				minlength : 4,
+				maxlength : 4,
+				digits : true,
+//				regx:/^0[0-9]*$/i
+			},
+			
+			memberEmailId:{
 				required : true,
+				maxlength : 50,
+			},
+			
+			memberEmailUri:{
+				required : true,
+				//url : true,
 				maxlength : 50,
 			},
 
@@ -121,7 +144,7 @@ $(document).ready(function(){
 				required: '비밀번호는 필수항목입니다.',
 				minlength:'비밀번호는 {0}자 이상 입력하세요.',
 				maxlength:'비밀번호는 {0}자를 초과할 수 없습니다.',
-				regx:'영어와 숫자만 사용가능합니다.'
+				regx:'영어2자이상 숫자 특수기호사용 8자이상 가능합니다.'
 			},
 			
 			memberRepeatPw:{
@@ -142,30 +165,50 @@ $(document).ready(function(){
 				regx: '0으로 시작하는 숫자만 입력하세요'*/
 			},
 			
-			memberAddr:{
+			memberAddr1:{
 				required : '주소를 입력하세요',
 				minlength : '길이가 짧습니다. 정확하게 입력했는지 확인하세요',
 				maxlength : '길이가 깁니다. 정확하게 입력했는지 확인하세요',
 				//regx: '0으로 시작하는 숫자만 입력하세요'
 			},
 			
-			memberTel:{
+			memberTel1_2:{
 				required : '전화번호를 입력하세요',
 				minlength : '너무짧습니다',
 				maxlength : '글자수가 초과 되었습니다',
 				regx: '숫자가 아닙니다'
 			},
 			
-			memberTel2:{
+			memberTel1_3:{
+				required : '전화번호를 입력하세요',
 				minlength : '너무짧습니다',
 				maxlength : '글자수가 초과 되었습니다',
 				regx: '숫자가 아닙니다'
 			},
 			
-			memberEmail:{
+			memberTel2_2:{
+				minlength : '너무짧습니다',
+				maxlength : '글자수가 초과 되었습니다',
+				regx: '숫자가 아닙니다'
+			},
+			
+			memberTel2_3:{
+				minlength : '너무짧습니다',
+				maxlength : '글자수가 초과 되었습니다',
+				regx: '숫자가 아닙니다'
+			},
+			
+			memberEmailId:{
 				required : '이메일를 입력하세요',
 				// email : true,                //이메일만 입력 지정
 				// url : true,                  //url만 입력 지정
+				maxlength : '글자수가 초과 되었습니다',
+			},
+			
+			memberEmailUri:{
+				required : '이메일를 입력하세요',
+				// email : true,                //이메일만 입력 지정
+				//url : '올바른형식이 아닙니다.',                  //url만 입력 지정
 				maxlength : '글자수가 초과 되었습니다',
 			},
 		},
@@ -173,7 +216,18 @@ $(document).ready(function(){
 		errorPlacement: function(error, element){
 			error.insertAfter(element);
 		},
-		//유효성검사 완료시 실행
+		errorPlacement : function(error, element) {
+			var n = element.attr("name");
+			if (n == "memberTel1_2" || n == "memberTel1_3")
+				error.insertAfter("#memberTel1_3");
+			else if (n == "memberTel2_2" || n == "memberTel2_3")
+				error.insertAfter("#memberTel2_3");
+//			else if (n == "phoneNum2" || n == "phoneNum3")
+//				error.insertAfter("#phoneNum3");
+			else
+				error.insertAfter(element);
+		},
+		// 유효성검사 완료시 실행
 		submitHandler: function(form) {
 			form.submit();
           // $( "#dialog-confirm" ).dialog( "open" );
