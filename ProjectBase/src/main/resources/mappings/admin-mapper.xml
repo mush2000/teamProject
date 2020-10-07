@@ -17,6 +17,16 @@
 		<result column="CLASS_STATUS"    property="classStatus"/>
 		<result column="REG_MEMBER_CNT"    property="regMemberCnt"/>
 		<result column="CREATE_DATE"    property="createDate"/>
+		
+		<result column="CLASSES_NAME"    property="classesName"/>
+		<result column="CLASS_DAY"    property="classDay"/>
+		<result column="CLASS_TIME_HOUR"    property="classTimeHour"/>
+		<result column="LEVEL_NAME"    property="levelName"/>
+		<result column="LEVEL_DETAIL"    property="levelDetail"/>
+		<result column="PLACE_NAME"    property="placeName"/>
+		<result column="MEMBER_ID"    property="memberId"/>
+		<result column="MEMBER_NAME"    property="memberName"/>
+		<result column="CLASS_STATUS_NAME"    property="classStatusName"/>
 	</resultMap>
 	
 	<resultMap type="com.spring.biz.vo.ClassesVO" id="classes">
@@ -141,6 +151,39 @@
 		
 		)
 	</insert>
+	
+	<select id="selectClassInfo" resultMap="classInfo">
+		SELECT CLASS_NUM
+		        , I.CLASSES_CODE
+		        , I.CLASS_TIME 
+		        , I.CLASS_LV
+		        , I.LOC_CODE
+		        , I.INST_NUM
+		        , I.CLASS_STATUS
+		        , C.CLASSES_NAME
+		        , T.CLASS_DAY
+		        , T.CLASS_TIME AS CLASS_TIME_HOUR 
+		        , L.LEVEL_NAME
+		        , L.LEVEL_DETAIL
+		        , P.PLACE_NAME
+		        , INST.MEMBER_ID
+		        , M.MEMBER_NAME
+		        , S.CLASS_STATUS AS CLASS_STATUS_NAME
+		        , REG_MEMBER_CNT
+		        , REG_START_DATE
+		        , REG_END_DATE
+		        , START_DATE
+		        , CREATE_DATE
+		FROM CLASS_INFO I, CLASSES C, CLASS_TIME T, CLASS_LEVEL L, CLASS_PLACE P, INSTRUCTOR_INFO INST, MEMBER_INFO M, CLASS_STATUS S
+		WHERE I.CLASSES_CODE = C.CLASSES_CODE
+		AND I.CLASS_TIME = T.TIME_CODE
+		AND I.CLASS_LV = L.LEVEL_CODE
+		AND I.LOC_CODE = P.PLACE_CODE
+		AND I.INST_NUM = INST.INST_NUM
+		AND INST.MEMBER_ID = M.MEMBER_ID
+		AND I.CLASS_STATUS = S.CLASS_STATUS_CODE
+		
+	</select>
 	
 </mapper>
 

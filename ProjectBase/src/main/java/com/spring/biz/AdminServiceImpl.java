@@ -54,6 +54,11 @@ public class AdminServiceImpl implements AdminService{
 		return sqlSession.insert("insertLecture", classInfoVO);
 	}
 
+	@Override
+	public List<ClassInfoVO> selectClassInfo() {
+		return sqlSession.selectList("selectClassInfo");
+	}
+
 	
 
 	

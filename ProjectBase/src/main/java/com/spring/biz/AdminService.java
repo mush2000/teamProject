@@ -25,6 +25,8 @@ public interface AdminService {
 	List<ClassStatusVO> selectClassStatus();
 	//강의 개설하기
 	int insertLecture(ClassInfoVO classInfoVO);
+	//개설된 강의 목록 불러오기
+	List<ClassInfoVO> selectClassInfo();
 
 }	
 
