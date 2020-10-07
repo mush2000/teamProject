@@ -96,8 +96,10 @@ public class CentreManageController {
 				int ch = new Random().nextInt(94) + 33;
 				newPw += (char)ch;
 			}
+			memberVO.setMemberPw(newPw);
+			memberService.newPw(memberVO);
 			SendEmail se = new SendEmail();
-			se.testMailSend(memberVO.getMemberName(), memberVO.getMemberEmail(), newPw);
+			se.mailSend(memberVO.getMemberName(), memberVO.getMemberEmail(), newPw);
 //			memberService.newPw(memberVO);
 		}
 		return "redirect:loginPage.do";
