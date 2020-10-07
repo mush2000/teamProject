@@ -145,7 +145,7 @@
 						</div>
 						<div class="row">
 							<div class="col-md-12">
-								<div id="map" style="width:100vh; height:100vh;"></div>
+								<div id="map" style="width:70vh; height:70vh;"></div>
 								<script type="text/javascript">
 									var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 								    mapOption = { 
