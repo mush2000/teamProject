@@ -4,198 +4,64 @@
 
 <!-- 맵퍼파일 생성 후 반드시 sql-map-config.xml 파일에 mapper 등록해줘야 함 -->
 <mapper namespace="adminMapper">
-	<resultMap type="com.spring.biz.vo.ClassInfoVO" id="classInfo">
-		<result column="CLASS_NUM"    property="classNum"/>
-		<result column="CLASSES_CODE"    property="classesCode"/>
-		<result column="CLASS_TIME"    property="classTime"/>
-		<result column="CLASS_LV"    property="classLv"/>
-		<result column="START_DATE"    property="startDate"/>
-		<result column="REG_START_DATE"    property="regStartDate"/>
-		<result column="REG_END_DATE"    property="regEndDate"/>
-		<result column="LOC_CODE"    property="locCode"/>
-		<result column="INST_NUM"    property="instNum"/>
-		<result column="CLASS_STATUS"    property="classStatus"/>
-		<result column="REG_MEMBER_CNT"    property="regMemberCnt"/>
-		<result column="CREATE_DATE"    property="createDate"/>
-		
-		<result column="CLASSES_NAME"    property="classesName"/>
-		<result column="CLASS_DAY"    property="classDay"/>
-		<result column="CLASS_TIME_HOUR"    property="classTimeHour"/>
-		<result column="LEVEL_NAME"    property="levelName"/>
-		<result column="LEVEL_DETAIL"    property="levelDetail"/>
-		<result column="PLACE_NAME"    property="placeName"/>
-		<result column="MEMBER_ID"    property="memberId"/>
-		<result column="MEMBER_NAME"    property="memberName"/>
-		<result column="CLASS_STATUS_NAME"    property="classStatusName"/>
-	</resultMap>
 	
-	<resultMap type="com.spring.biz.vo.ClassesVO" id="classes">
-		<result column="CLASSES_CODE"    property="classesCode"/>
-		<result column="CLASSES_NAME"    property="classesName"/>
-		<result column="CLASSES_FEE"    property="classesFee"/>
-		<result column="CLASSES_DETAIL"    property="classesDetail"/>
-		<result column="CLASSES_PIC"    property="classesPic"/>
-	</resultMap>
+	<!-- <update id="updateMemberInfo">
+		UPDATE MEMBER_INFO
+		SET
+	 	MEMBER_ADDR = #{memberAddr}
+		, MEMBER_TEL = #{memberTel}
+		, MEMBER_TEL2 = #{memberTel2}
+		, MEMBER_EMAIL = #{memberEmail}
+		WHERE MEMBER_ID = #{memberId}
+	</update> -->	
 	
-	<resultMap type="com.spring.biz.vo.ClassPlaceVO" id="classPlace">
-		<result column="PLACE_CODE"    property="placeCode"/>
-		<result column="PLACE_NAME"    property="placeName"/>
-		<result column="RETAL_PEE"    property="retalPee"/>
-		<result column="AVAILABLE"    property="available"/>
-	</resultMap>
+	<!-- <select id="getListCnt" parameterType="String" resultType="int">
+		SELECT COUNT(*) AS LIST_CNT
+		FROM ${value}
+	</select> -->
 	
-	<resultMap type="com.spring.biz.vo.ClassTimeVO" id="classTime">
-		<result column="TIME_CODE"    property="timeCode"/>
-		<result column="CLASS_DAY"    property="classDay"/>
-		<result column="CLASS_TIME"    property="classTime"/>
-	</resultMap>
-	
-	<resultMap type="com.spring.biz.vo.InstructorInfoVO" id="instructorInfo">
-		<result column="INST_NUM"    property="instNum"/>
-		<result column="MEMBER_ID"    property="memberId"/>
-		<result column="REG_NUM"    property="regNum"/>
-		<result column="CAREER"    property="carrer"/>
-		<result column="LICENSE"    property="license"/>
-		<result column="INST_POS"    property="instPos"/>
-		<result column="SALARY"    property="salary"/>
-		<result column="PICTURE"    property="picture"/>
-	</resultMap>
-	
-	<resultMap type="com.spring.biz.vo.ClassLevelVO" id="classLevel">
-		<result column="LEVEL_CODE"    property="levelCode"/>
-		<result column="CLASSES_CODE"    property="classesCode"/>
-		<result column="LEVEL_NAME"    property="levelName"/>
-		<result column="LEVEL_DETAIL"    property="levelDetail"/>
-	</resultMap>
-	
-	<resultMap type="com.spring.biz.vo.ClassStatusVO" id="classStatus">
-		<result column="CLASS_STATUS_CODE"    property="classStatusCode"/>
-		<result column="CLASS_STATUS"    property="classStatus"/>
-	</resultMap>
-	
-	<select id="selectClasses" resultMap="classes">
-		SELECT CLASSES_CODE
-		        , CLASSES_NAME
-		        , CLASSES_FEE
-		        , CLASSES_DETAIL
-		        , CLASSES_PIC
-		FROM CLASSES
+	<!-- 해당테이블(회원)의 개수를 조회 -->
+	<select id="getListCntMap" parameterType="hashMap" resultType="int">
+ 		SELECT COUNT(*) AS LIST_CNT
+		FROM ${table}
+		WHERE 1 = 1
+		<if test="delYn != null">
+			AND DEL_YN = #{delYn}
+		</if>
+		<if test="idKeyword != null">
+			AND (UPPER(MEMBER_ID) LIKE UPPER('%'||#{idKeyword}||'%')
+			OR UPPER(MEMBER_NAME) LIKE UPPER('%'||#{nameKeyword}||'%'))
+		</if>
 	</select>
 	
-	<select id="selectClassPlace" resultMap="classPlace">
-		SELECT PLACE_CODE
-		        , PLACE_NAME
-		        , RETAL_PEE
-		        , AVAILABLE
-		FROM CLASS_PLACE
+	
+	<!-- 삭제여부, 키워드를 이용해서 회원을 조회 -->
+	<select id="selectMemberInfoList2" parameterType="hashMap" resultMap="memberMapper.member">
+		SELECT * 
+		FROM (SELECT ROW_NUMBER() OVER (ORDER BY MEMBER_ID) NUM 
+		    , MEMBER_ID
+		    , MEMBER_NAME
+		    , MEMBER_GENDER
+		    , TO_CHAR(MEMBER_BIRTHDAY, 'YYYY.MM.DD') AS MEMBER_BIRTHDAY
+		    , MEMBER_ADDR
+		    , MEMBER_TEL
+		    , MEMBER_TEL2
+		    , MEMBER_EMAIL
+		    , TO_CHAR(JOIN_DATE, 'YYYY.MM.DD') AS JOIN_DATE
+		    , DEL_YN
+		    FROM MEMBER_INFO
+		    WHERE 1 = 1 
+		    <if test="delYn != null">
+		    	AND DEL_YN = #{delYn} 
+		    </if>
+		    <if test="idKeyword != null">
+				AND (UPPER(MEMBER_ID) LIKE UPPER('%'||#{idKeyword}||'%')
+				OR UPPER(MEMBER_NAME) LIKE UPPER('%'||#{nameKeyword}||'%'))
+			</if>
+		    ORDER BY MEMBER_ID
+		    )
+		WHERE NUM BETWEEN #{pagination.startList} AND #{pagination.listSize}
 	</select>
 	
-	<select id="selectClassTime" resultMap="classTime">
-		SELECT TIME_CODE
-		        , CLASS_DAY
-		        , CLASS_TIME
-		FROM CLASS_TIME
-	</select>
-	
-	<select id="selectInstructorInfo" resultMap="instructorInfo">
-		SELECT INST_NUM
-		        , MEMBER_ID
-		        , REG_NUM
-		        , CAREER
-		        , LICENSE
-		        , INST_POS
-		        , SALARY
-		        , PICTURE
-		FROM INSTRUCTOR_INFO
-	</select>
-	
-	<select id="selectClassLevel" resultMap="classLevel">
-		SELECT LEVEL_CODE
-		        , CLASSES_CODE
-		        , LEVEL_NAME
-		        , LEVEL_DETAIL
-		FROM CLASS_LEVEL
-	</select>
-	
-	<select id="selectClassStatus" resultMap="classStatus">
-		SELECT CLASS_STATUS_CODE
-		        , CLASS_STATUS
-		FROM  CLASS_STATUS
-	</select>
-	
-	<insert id="insertLecture">
-		INSERT INTO CLASS_INFO(
-		    CLASS_NUM
-		    , CLASSES_CODE
-		    , CLASS_TIME
-		    , CLASS_LV
-		    , REG_START_DATE
-		    , REG_END_DATE
-		    , START_DATE
-		    , LOC_CODE
-		    , INST_NUM
-		    , CLASS_STATUS
-		    , REG_MEMBER_CNT
-		) VALUES (
-		    (SELECT NVL(MAX(CLASS_NUM)+1,1) FROM CLASS_INFO)
-		    , #{classesCode}
-		    , #{classTime}
-		    , #{classLv}
-		    , #{regStartDate}
-		    , #{regEndDate}
-		    , #{startDate}
-		    , #{locCode}
-		    , #{instNum}
-		    , #{classStatus}
-		    , #{regMemberCnt}
-		
-		)
-	</insert>
-	
-	<select id="selectClassInfo" resultMap="classInfo">
-		SELECT CLASS_NUM
-		        , I.CLASSES_CODE
-		        , I.CLASS_TIME 
-		        , I.CLASS_LV
-		        , I.LOC_CODE
-		        , I.INST_NUM
-		        , I.CLASS_STATUS
-		        , C.CLASSES_NAME
-		        , T.CLASS_DAY
-		        , T.CLASS_TIME AS CLASS_TIME_HOUR 
-		        , L.LEVEL_NAME
-		        , L.LEVEL_DETAIL
-		        , P.PLACE_NAME
-		        , INST.MEMBER_ID
-		        , M.MEMBER_NAME
-		        , S.CLASS_STATUS AS CLASS_STATUS_NAME
-		        , REG_MEMBER_CNT
-		        , REG_START_DATE
-		        , REG_END_DATE
-		        , START_DATE
-		        , CREATE_DATE
-		FROM CLASS_INFO I, CLASSES C, CLASS_TIME T, CLASS_LEVEL L, CLASS_PLACE P, INSTRUCTOR_INFO INST, MEMBER_INFO M, CLASS_STATUS S
-		WHERE I.CLASSES_CODE = C.CLASSES_CODE
-		AND I.CLASS_TIME = T.TIME_CODE
-		AND I.CLASS_LV = L.LEVEL_CODE
-		AND I.LOC_CODE = P.PLACE_CODE
-		AND I.INST_NUM = INST.INST_NUM
-		AND INST.MEMBER_ID = M.MEMBER_ID
-		AND I.CLASS_STATUS = S.CLASS_STATUS_CODE
-		
-	</select>
 	
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-

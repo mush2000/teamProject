@@ -43,7 +43,6 @@ $(document).ready(function(){
 //				maxlength : 12,
 //				regx:/^[a-zA-Z0-9]*$/i //영어&숫자만
 			},
-			
 			memberName:{
 				required : true,
 //				minlength : 3,
@@ -74,27 +73,26 @@ $(document).ready(function(){
            // },
            //memberId:'ID를 입력하세요',
 			memberId:{
-				required: 'ID는 필수항목입니다.',
+				required: '&nbsp;아이디를 입력하세요&nbsp;',
 //				minlength:'ID는 {0}자 이상 입력하세요.',
 //				maxlength:'ID는 {0}자를 초과할 수 없습니다.',
 //				regx:'영어와 숫자만 사용가능합니다.'
 			},
-			
 			memberName:{
-				required : '이름을 입력하세요',
+				required : '&nbsp;이름을 입력하세요&nbsp;',
 //				minlength : '너무 짧습니다',
 //				maxlength : '글자수 제한을 넘었습니다',
 			},
 			
 			memberEmailId:{
-				required : '이메일를 입력하세요',
+				required : '&nbsp;이메일 아이디 누락&nbsp;',
 				// email : true,                //이메일만 입력 지정
 				// url : true,                  //url만 입력 지정
 //				maxlength : '글자수가 초과 되었습니다',
 			},
 			
 			memberEmailUri:{
-				required : '이메일를 입력하세요',
+				required : '&nbsp;이메일 URI 누락&nbsp;',
 				// email : true,                //이메일만 입력 지정
 				//url : '올바른형식이 아닙니다.',                  //url만 입력 지정
 //				maxlength : '글자수가 초과 되었습니다',
@@ -120,8 +118,13 @@ $(document).ready(function(){
 //	});
 	
 	$(document).on('click', '#submitBtn', function() {
+		//var inko = new Inko();
+		//var realId = inko.ko2en($('#memberId').val());
+		//$('#memberId').val(realId);
+		//var realName = inko.en2ko($('#memberName').val());
+		//$('#memberName').val(realName);
 		$('#memberEmail').val($('#memberEmail1').val() + '@' + $('#memberEmail2').val());
-		submit();
+		$('#searchPwForm').submit();
 	});
 	
 	$(document).on('change', '#emailUri', function() {
@@ -135,7 +138,13 @@ $(document).ready(function(){
 		}
 	});
 	
+	$(document).on('click', '#searchId', function() {
+		location.href='searchIdPage.do';
+	});
 	
+	$(document).on('click', '#login', function() {
+		location.href='loginPage.do';
+	});
 });
 
 /* 함수선언 영역*/

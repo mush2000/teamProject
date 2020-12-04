@@ -1,17 +1,32 @@
 package com.spring.biz.vo;
 
-public class ClassesVO {
+import java.util.List;
+
+import oracle.net.ano.SupervisorService;
+
+public class ClassesVO implements Cloneable{
 	private int classesCode;
     private String classesName;
     private int classesFee;
     private String classesDetail;
-    private String classesPic;
+    private List<String> classesPic;
+    private int minMember;
+    private int maxMember;
+    private int frontPlaceCode;
+    private int frontDayCode;
     
-	public String getClassesPic() {
-		return classesPic;
+	
+	public int getFrontDayCode() {
+		return frontDayCode;
 	}
-	public void setClassesPic(String classesPic) {
-		this.classesPic = classesPic;
+	public void setFrontDayCode(int frontDayCode) {
+		this.frontDayCode = frontDayCode;
+	}
+	public int getFrontPlaceCode() {
+		return frontPlaceCode;
+	}
+	public void setFrontPlaceCode(int frontPlaceCode) {
+		this.frontPlaceCode = frontPlaceCode;
 	}
 	public int getClassesCode() {
 		return classesCode;
@@ -37,14 +52,39 @@ public class ClassesVO {
 	public void setClassesDetail(String classesDetail) {
 		this.classesDetail = classesDetail;
 	}
-	
+	public List<String> getClassesPic() {
+		return classesPic;
+	}
+	public void setClassesPic(List<String> classesPic) {
+		this.classesPic = classesPic;
+	}
+	public int getMinMember() {
+		return minMember;
+	}
+	public void setMinMember(int minMember) {
+		this.minMember = minMember;
+	}
+	public int getMaxMember() {
+		return maxMember;
+	}
+	public void setMaxMember(int maxMember) {
+		this.maxMember = maxMember;
+	}
 	@Override
 	public String toString() {
 		return "ClassesVO [classesCode=" + classesCode + ", classesName=" + classesName + ", classesFee=" + classesFee
-				+ ", classesDetail=" + classesDetail + ", classesPic=" + classesPic + "]";
+				+ ", classesDetail=" + classesDetail + ", classesPic=" + classesPic + ", minMember=" + minMember
+				+ ", maxMember=" + maxMember + ", frontPlaceCode=" + frontPlaceCode + ", frontDayCode=" + frontDayCode
+				+ "]";
 	}
-    
-    
-
-
+	
+	public Object clone() {
+		Object obj = null;
+		try {
+			obj = super.clone();
+		} catch (CloneNotSupportedException e) { }
+		
+		return obj;
+	}
+	
 }

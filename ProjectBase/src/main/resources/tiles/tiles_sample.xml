@@ -9,7 +9,7 @@
 		<put-attribute name="foot" value="/WEB-INF/view/common/bottom.jsp"/>
 	</definition>
 	
-	<definition name="common/*" extends="baseLayout">
+	<!-- <definition name="common/*" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/view/common/{1}.jsp" />
 	</definition>
 	
@@ -23,6 +23,10 @@
 	
 	<definition name="center/*" extends="baseLayout">
 		<put-attribute name="body" value="/WEB-INF/view/center/{1}.jsp" />
+	</definition> -->
+	
+	<definition name="*/*" extends="baseLayout">
+		<put-attribute name="body" value="/WEB-INF/view/{1}/{2}.jsp" />
 	</definition>
 	
 </tiles-definitions>

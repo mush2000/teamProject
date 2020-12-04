@@ -23,6 +23,7 @@
 	font-style: normal;
 }
 
+
 .left {
     width: 50%;
     float: left;
@@ -47,13 +48,45 @@ div.introTab ul > li{
 	z-index: 1;	
 }
 
+p.centerImage{
+	font-family: 'S-CoreDream-4Regular';
+	font-size: 1.5em;
+}
 
+a.centerIntroNameA{
+	font-family: 'NanumSquareRound';
+	color: #0034a9;
+}
 
+.title{
+	font-weight: bold;
+	background-color: #F7F7F7;
+}
 
+table.centerInfoTable{
+	border-top: 3px solid #0034a9;
+	border-bottom: 1px solid #dddddd;
+}
 
+#loc_tx {
+    position: relative;
+    top: -33px;
+    background: #f8f8f9;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    z-index: 11;
+}
 
+#loc_tx li:first-child {
+    border-right: 1px solid #ddd;
+}
 
-
+#loc_tx li {
+    width: 50%;
+    float: left;
+    padding: 30px 20px 30px 30px;
+    position: relative;
+}
 
 
        

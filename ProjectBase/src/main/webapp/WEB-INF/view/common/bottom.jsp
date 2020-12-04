@@ -6,149 +6,38 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" type="text/css" href="resources/css/bottom.css?ver=2"/>
+<script src="resources/js/bottom.js?ver=2"></script>
+<style type="text/css">
+body{
+}
+</style>
 </head>
 <body>
-<table class="table1" style="background-color: #282828; width: 60%; height: 274px; text-align: center;">
-	<colgroup>
-		<col width="5%"></col>
-		<col width="5%"></col>
-		<col width="5%"></col>
-		<col width="5%"></col>
-		<col width="5%"></col>
-		<col width="5%"></col>
-	</colgroup>
-	<tr class="bottomMenuTr">
-		<td>
-			<ul style="margin-bottom: 0px;">
-				<li>
-					<br>
-					<span style="font-weight: bold; font-size: 1.3em; text-align: left">센터안내</span>
-					<hr>
-					<ul style="margin-bottom: 0px;">
-						<li><a href="introPage.do">센터소개</a></li>
-						<li><a href="#">시설현황</a></li>
-						<li><a href="#">위치안내</a></li>
-					</ul>
-					<br>
-				</li>
-			</ul>
-		</td>
-		<td>
-			<ul style="margin-bottom: 0px;">
-				<li>
-					<br>
-					<span style="font-weight: bold; font-size: 1.3em;">강의안내</span>
-					<hr>
-					<ul style="margin-bottom: 0px;">
-						<li><a href="#">수영</a></li>
-						<li><a href="#">스크린골프</a></li>
-						<li><a href="#">실내체육</a></li>
-						<li><a href="#">스쿼시</a></li>
-						<li><a href="#">GX</a></li>
-						<li><a href="#">헬스</a></li>
-						<li><a href="#">요가</a></li>
-						<li><a href="#">필라테스</a></li>
-					</ul>
-					<br>
-				</li>
-			</ul>
-		</td>
-		<td>
-			<ul style="margin-bottom: 0px;">
-				<li>
-					<br>
-					<span style="font-weight: bold; font-size: 1.3em;">강사안내</span>
-					<hr>
-					<ul style="margin-bottom: 0px;">
-						<li><a href="#">수영강사</a></li>
-						<li><a href="#">골프강사</a></li>
-						<li><a href="#">스쿼시강사</a></li>
-						<li><a href="#">요가강사</a></li>
-						<li><a href="#">트레이너</a></li>
-						<li><a href="#">시간제강사</a></li>
-					</ul>
-					<br>
-				</li>
-			</ul>
-		</td>
-		<td>
-			<ul style="margin-bottom: 0px;">
-				<li>
-					<br>
-					<span style="font-weight: bold; font-size: 1.3em;">대관안내</span>
-					<hr>
-					<ul style="margin-bottom: 0px;">
-						<li><a href="#">대관소개</a></li>
-						<li><a href="#">대관신청</a></li>
-						<li><a href="#">대관일정</a></li>
-					</ul>
-					<br>
-				</li>
-			</ul>
-		</td>
-		<td>
-			<ul style="margin-bottom: 0px;">
-				<li>
-					<br>
-					<span style="font-weight: bold; font-size: 1.3em;">행사안내</span>
-					<hr>
-					<ul style="margin-bottom: 0px;">
-						<li><a href="#">센터행사</a></li>
-						<li><a href="#">각종대회</a></li>
-					</ul>
-					<br>
-				</li>
-			</ul>
-		</td>
-		<td>
-			<ul style="margin-bottom: 0px;">
-				<li>
-					<br>
-					<span style="font-weight: bold; font-size: 1.3em;">고객센터</span>
-					<hr>
-					<ul style="margin-bottom: 0px;">
-						<li><a href="#">공지사항</a></li>
-						<li><a href="#">Q&amp;A</a></li>
-						<li><a href="#">강사지원</a></li>
-					</ul>
-					<br>
-				</li>
-			</ul>
-		</td>
-	</tr>
-</table><table class="table2" style="background-color: #0034a9; width: 40%; height: 274px; text-align: center;">
-	<colgroup>
-		<col width="5%"></col>
-		<col width="5%"></col>
-		<col width="5%"></col>
-		<col width="5%"></col>
-		<col width="5%"></col>
-		<col width="5%"></col>
-	</colgroup>
-	<tr class="bottomMenuTr">
-		<td>
-			<ul style="margin-bottom: 0px;">
-				<li>
-					<br>
-					<span style="font-weight: bold; font-size: 1.3em;" data-toggle="modal" data-target="#protectInfo" class="protectInfo">개인정보보호정책</span> │ <span style="font-weight: bold; font-size: 1.3em;" data-toggle="modal" data-target="#emailRejection" class="emailRejection">메일주소무단수집거부</span>
-					<hr>
-					<ul style="margin-bottom: 0px;">
-						<li>　</li>
-						<li><img src="resources/images/logo.png" width="400px"></li>
-						<li>　</li>
-						<li>회사명 : 울산KH스포츠센터</li>
-						<li>위치 : 446-77 울산광역시 남구 삼산로35번길 19 (신정동)</li>
-						<li>전화 : 052-200-0000 / 팩스 : 052-200-0001</li>
-						<li>copyright © 울산KH스포츠센터. All Rights Reserved.</li>
-					</ul>
-					<br>
-				</li>
-			</ul>
-		</td>
-	</tr>
-</table>
-	
-	
+<div class="col-md-offset-4 col-md-8">
+
+</div>
+<div style="background-color: #333333; height: 145px; color: white;" class="row">
+	<div class="col-md-offset-3 col-md-9">
+		<img src="resources/images/logo2_white.png" style="width: 150px; position: relative; bottom: -50px;">
+	</div>
+	<div class="col-md-offset-4 col-md-8" style="position: relative; bottom: -8px;">
+		<span data-toggle="modal" data-target="#protectInfo" class="protectInfo">
+			개인정보보호정책
+		</span>
+		 │ 
+		<span  data-toggle="modal" data-target="#emailRejection" class="emailRejection">
+			메일주소무단수집거부
+		</span>
+		<br>
+		<span style="font-weight: lighter; color: white;">
+			copyright © 울산KH스포츠센터. All Rights Reserved. 446-77 울산광역시 남구 삼산로35번길 19 (신정동) T.052-200-0000 / F. 052-200-0001
+		</span>
+		<br><br>
+	</div>
+</div>
+
+
+
 <!-- 개인정보보호정책 Modal -->
 <div class="modal fade bs-example-modal-lg" id="protectInfo" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">

@@ -3,14 +3,17 @@ package com.spring.biz.vo;
 public class ClassPlaceVO {
 	private int placeCode;
     private String placeName;
-    private int retalPee;
+    private int rentalAlltimeCharge;
+    private int rentalHalftimeCharge;
     private String available;
+    private int frontPlaceCode;
     
-	public String getPlaceName() {
-		return placeName;
+	
+	public int getFrontPlaceCode() {
+		return frontPlaceCode;
 	}
-	public void setPlaceName(String placeName) {
-		this.placeName = placeName;
+	public void setFrontPlaceCode(int frontPlaceCode) {
+		this.frontPlaceCode = frontPlaceCode;
 	}
 	public int getPlaceCode() {
 		return placeCode;
@@ -18,11 +21,23 @@ public class ClassPlaceVO {
 	public void setPlaceCode(int placeCode) {
 		this.placeCode = placeCode;
 	}
-	public int getRetalPee() {
-		return retalPee;
+	public String getPlaceName() {
+		return placeName;
 	}
-	public void setRetalPee(int retalPee) {
-		this.retalPee = retalPee;
+	public void setPlaceName(String placeName) {
+		this.placeName = placeName;
+	}
+	public int getRentalAlltimeCharge() {
+		return rentalAlltimeCharge;
+	}
+	public void setRentalAlltimeCharge(int rentalAlltimeCharge) {
+		this.rentalAlltimeCharge = rentalAlltimeCharge;
+	}
+	public int getRentalHalftimeCharge() {
+		return rentalHalftimeCharge;
+	}
+	public void setRentalHalftimeCharge(int rentalHalftimeCharge) {
+		this.rentalHalftimeCharge = rentalHalftimeCharge;
 	}
 	public String getAvailable() {
 		return available;
@@ -32,11 +47,12 @@ public class ClassPlaceVO {
 	}
 	@Override
 	public String toString() {
-		return "ClassPlaceVO [placeCode=" + placeCode + ", placeName=" + placeName + ", retalPee=" + retalPee
-				+ ", available=" + available + "]";
+		return "ClassPlaceVO [placeCode=" + placeCode + ", placeName=" + placeName + ", rentalAlltimeCharge="
+				+ rentalAlltimeCharge + ", rentalHalftimeCharge=" + rentalHalftimeCharge + ", available=" + available
+				+ ", frontPlaceCode=" + frontPlaceCode + "]";
 	}
+	
+  
     
     
-
-
-}
+}   

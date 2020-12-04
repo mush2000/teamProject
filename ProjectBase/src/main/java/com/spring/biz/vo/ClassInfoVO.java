@@ -1,44 +1,57 @@
 package com.spring.biz.vo;
 
-
 public class ClassInfoVO {
-	private int classNum; // primary key
-	private int classesCode; // O
-	private int classTime; // O
-	private int classLv; // O
-	private String createDate; // default sysdate
-	private String startDate; // O
-	private String regStartDate; // O
-	private String regEndDate; // O
-	private int locCode; // O
-	private int instNum; // O
-	private int classStatus;
-	private int regMemberCnt;
+	//CLASS_INFO 테이블
+	private int classNum; 
+	private int classesCode; 
+	private String classTime; 
+	private int classLv; 
+	private String classDate; 
+	private int locCode; 
+	private int instNum; 
+	private int regMemberCnt; 
+	private int classInfoDayCode;
+	private int classApplyStart;
+	private int classApplyEnd;
+
+	//CLASSES 테이블
 	private String classesName;
-	private String classDay;
-	private int classTimeHour;
+	private int classesFee;
+	private int minMember;
+	private int maxMember;
+	//CLASS_LEVEL 테이블
+	private int levelCode;
 	private String levelName;
 	private String levelDetail;
+	//CLASS_DAY 테이블
+	private String classDay;
+	private int classDayCode;
+	//CLASS_TIME 테이블
+	private int timeCode;
+	//CLASS_PLACE 테이블
+	private int placeCode;
 	private String placeName;
+	//INSTRUCTOR_INFO 테이블
 	private String memberId;
+	//MEMBER_INFO 테이블
 	private String memberName;
-	private String classStatusName;
+	//SURVEY 테이블
+	private int surveyNum;
+	//REGISTER_CLASS
+	private int regClassNum;
 	
-	
-	
-	
-	public String getRegStartDate() {
-		return regStartDate;
+	public ClassInfoVO() {}
+	public ClassInfoVO(int classesCode, String classTime, int classLv, String classDate, int instNum, int classDayCode, int placeCode) {
+		super();
+		this.classesCode = classesCode;
+		this.classTime = classTime;
+		this.classLv = classLv;
+		this.classDate = classDate;
+		this.instNum = instNum;
+		this.classDayCode = classDayCode;
+		this.placeCode = placeCode;
 	}
-	public void setRegStartDate(String regStartDate) {
-		this.regStartDate = regStartDate;
-	}
-	public String getRegEndDate() {
-		return regEndDate;
-	}
-	public void setRegEndDate(String regEndDate) {
-		this.regEndDate = regEndDate;
-	}
+
 	public int getClassNum() {
 		return classNum;
 	}
@@ -51,10 +64,10 @@ public class ClassInfoVO {
 	public void setClassesCode(int classesCode) {
 		this.classesCode = classesCode;
 	}
-	public int getClassTime() {
+	public String getClassTime() {
 		return classTime;
 	}
-	public void setClassTime(int classTime) {
+	public void setClassTime(String classTime) {
 		this.classTime = classTime;
 	}
 	public int getClassLv() {
@@ -63,17 +76,11 @@ public class ClassInfoVO {
 	public void setClassLv(int classLv) {
 		this.classLv = classLv;
 	}
-	public String getCreateDate() {
-		return createDate;
+	public String getClassDate() {
+		return classDate;
 	}
-	public void setCreateDate(String createDate) {
-		this.createDate = createDate;
-	}
-	public String getStartDate() {
-		return startDate;
-	}
-	public void setStartDate(String startDate) {
-		this.startDate = startDate;
+	public void setClassDate(String classDate) {
+		this.classDate = classDate;
 	}
 	public int getLocCode() {
 		return locCode;
@@ -87,17 +94,29 @@ public class ClassInfoVO {
 	public void setInstNum(int instNum) {
 		this.instNum = instNum;
 	}
-	public int getClassStatus() {
-		return classStatus;
-	}
-	public void setClassStatus(int classStatus) {
-		this.classStatus = classStatus;
-	}
 	public int getRegMemberCnt() {
 		return regMemberCnt;
 	}
 	public void setRegMemberCnt(int regMemberCnt) {
 		this.regMemberCnt = regMemberCnt;
+	}
+	public int getClassInfoDayCode() {
+		return classInfoDayCode;
+	}
+	public void setClassInfoDayCode(int classInfoDayCode) {
+		this.classInfoDayCode = classInfoDayCode;
+	}
+	public int getClassApplyStart() {
+		return classApplyStart;
+	}
+	public void setClassApplyStart(int classApplyStart) {
+		this.classApplyStart = classApplyStart;
+	}
+	public int getClassApplyEnd() {
+		return classApplyEnd;
+	}
+	public void setClassApplyEnd(int classApplyEnd) {
+		this.classApplyEnd = classApplyEnd;
 	}
 	public String getClassesName() {
 		return classesName;
@@ -105,17 +124,29 @@ public class ClassInfoVO {
 	public void setClassesName(String classesName) {
 		this.classesName = classesName;
 	}
-	public String getClassDay() {
-		return classDay;
+	public int getClassesFee() {
+		return classesFee;
 	}
-	public void setClassDay(String classDay) {
-		this.classDay = classDay;
+	public void setClassesFee(int classesFee) {
+		this.classesFee = classesFee;
 	}
-	public int getClassTimeHour() {
-		return classTimeHour;
+	public int getMinMember() {
+		return minMember;
 	}
-	public void setClassTimeHour(int classTimeHour) {
-		this.classTimeHour = classTimeHour;
+	public void setMinMember(int minMember) {
+		this.minMember = minMember;
+	}
+	public int getMaxMember() {
+		return maxMember;
+	}
+	public void setMaxMember(int maxMember) {
+		this.maxMember = maxMember;
+	}
+	public int getLevelCode() {
+		return levelCode;
+	}
+	public void setLevelCode(int levelCode) {
+		this.levelCode = levelCode;
 	}
 	public String getLevelName() {
 		return levelName;
@@ -128,6 +159,30 @@ public class ClassInfoVO {
 	}
 	public void setLevelDetail(String levelDetail) {
 		this.levelDetail = levelDetail;
+	}
+	public String getClassDay() {
+		return classDay;
+	}
+	public void setClassDay(String classDay) {
+		this.classDay = classDay;
+	}
+	public int getClassDayCode() {
+		return classDayCode;
+	}
+	public void setClassDayCode(int classDayCode) {
+		this.classDayCode = classDayCode;
+	}
+	public int getTimeCode() {
+		return timeCode;
+	}
+	public void setTimeCode(int timeCode) {
+		this.timeCode = timeCode;
+	}
+	public int getPlaceCode() {
+		return placeCode;
+	}
+	public void setPlaceCode(int placeCode) {
+		this.placeCode = placeCode;
 	}
 	public String getPlaceName() {
 		return placeName;
@@ -147,25 +202,31 @@ public class ClassInfoVO {
 	public void setMemberName(String memberName) {
 		this.memberName = memberName;
 	}
-	public String getClassStatusName() {
-		return classStatusName;
+	public int getSurveyNum() {
+		return surveyNum;
 	}
-	public void setClassStatusName(String classStatusName) {
-		this.classStatusName = classStatusName;
+	public void setSurveyNum(int surveyNum) {
+		this.surveyNum = surveyNum;
 	}
+	public int getRegClassNum() {
+		return regClassNum;
+	}
+	public void setRegClassNum(int regClassNum) {
+		this.regClassNum = regClassNum;
+	}
+	
 	@Override
 	public String toString() {
 		return "ClassInfoVO [classNum=" + classNum + ", classesCode=" + classesCode + ", classTime=" + classTime
-				+ ", classLv=" + classLv + ", createDate=" + createDate + ", startDate=" + startDate + ", regStartDate="
-				+ regStartDate + ", regEndDate=" + regEndDate + ", locCode=" + locCode + ", instNum=" + instNum
-				+ ", classStatus=" + classStatus + ", regMemberCnt=" + regMemberCnt + ", classesName=" + classesName
-				+ ", classDay=" + classDay + ", classTimeHour=" + classTimeHour + ", levelName=" + levelName
-				+ ", levelDetail=" + levelDetail + ", placeName=" + placeName + ", memberId=" + memberId
-				+ ", memberName=" + memberName + ", classStatusName=" + classStatusName + "]";
+				+ ", classLv=" + classLv + ", classDate=" + classDate + ", locCode=" + locCode + ", instNum=" + instNum
+				+ ", regMemberCnt=" + regMemberCnt + ", classInfoDayCode=" + classInfoDayCode + ", classApplyStart="
+				+ classApplyStart + ", classApplyEnd=" + classApplyEnd + ", classesName=" + classesName
+				+ ", classesFee=" + classesFee + ", minMember=" + minMember + ", maxMember=" + maxMember
+				+ ", levelCode=" + levelCode + ", levelName=" + levelName + ", levelDetail=" + levelDetail
+				+ ", classDay=" + classDay + ", classDayCode=" + classDayCode + ", timeCode=" + timeCode
+				+ ", placeCode=" + placeCode + ", placeName=" + placeName + ", memberId=" + memberId + ", memberName="
+				+ memberName + ", surveyNum=" + surveyNum + ", regClassNum=" + regClassNum + "]";
 	}
-	
-	
-	
 	
 	
 }

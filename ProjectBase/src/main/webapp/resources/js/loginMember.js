@@ -1,9 +1,13 @@
 /* 페이지 로딩 후 실행 */
 $(document).ready(function(){
+//	var inko = new Inko();
 	//클릭 이벤트
 	//$(document).on('click', '선택자', function() {
 
 	//});
+	
+	//밸리데이션 줄바꿈
+
 	
 	$("#loginForm").validate({
         //테스트를 위하여 유효성 검사가 완료되어도 submit을 처리하지 않음.
@@ -32,7 +36,7 @@ $(document).ready(function(){
           // },
 			memberId:{
 				required : true,
-				regx:/^[a-zA-Z0-9]*$/i //영어&숫자만
+				regx:/^[a-zA-Z0-9ㄱ-ㅎ|ㅏ-ㅣ|가-힣]*$/i //영어&숫자만
 			},
 			
 			memberPw:{
@@ -62,8 +66,18 @@ $(document).ready(function(){
 		},
         //유효성검사 실패시 메시지 출력방식을 설정
 		errorPlacement: function(error, element){
-			error.insertAfter(element);
+			var memberId = element.attr('id');
+			var memberPw = element.attr('id');
+			
+			if(memberId == 'memberId'){
+				error.insertAfter('#idDiv');
+			}else if(memberPw == 'inputPassword'){
+				error.insertAfter('#pwDiv');
+			}else{
+				error.insertAfter(element);
+			}
 		},
+		
 		//유효성검사 완료시 실행
 		submitHandler: function(form) {
 			form.submit();
@@ -80,7 +94,17 @@ $(document).ready(function(){
 	$(document).on('click', '#searchId', function() {
 		location.href='searchIdPage.do';
 	});
-
+	
+	$(document).on('keypress', '#inputPassword', function() {
+		capsLock(event);
+	});
+	
+	$(document).on('click', '#submitBtn', function() {
+		var inko = new Inko();
+		var realId = inko.ko2en($('#memberId').val());
+		$('#memberId').val(realId);
+		submit();
+	});
 });
 
 /* 함수선언 영역*/
@@ -89,31 +113,42 @@ $(document).ready(function(){
 	//aaa = function(){
 	
 	//};
-	checkId = function(){
-		alert('1234');
-		alert($('#memberId').val());
-		$.ajax({
-			url :"checkId.do",
-			type:"post",
-			data:$("#memberId").val(),
-			success:function(result){
-				if(result == 1)
-					alert('사용 가능한  아이디입니다.');
-				else
-					alert('사용할 수 없는 아이디 입니다.<br> 다시입력하세요');
-			}
-		    ,error: function(){
-		    	alert("에러발생");
-		    }
-		});
-	}
+//	checkId = function(){
+//		alert('1234');
+//		alert($('#memberId').val());
+//		$.ajax({
+//			url :"checkId.do",
+//			type:"post",
+//			data:$("#memberId").val(),
+//			success:function(result){
+//				if(result == 1)
+//					alert('사용 가능한  아이디입니다.');
+//				else
+//					alert('사용할 수 없는 아이디 입니다.<br> 다시입력하세요');
+//			}
+//		    ,error: function(){
+//		    	alert("에러발생");
+//		    }
+//		});
+//	}
 
-	
-	enterSearch = function() {
-		var evt_code = (window.netscape) ? ev.which : event.keyCode;
-		if (evt_code == 13) {    
-			event.keyCode = 0;
-			getAddrLoc(); 
-		} 
+	capsLock = function(e){
+		  var keyCode = 0;
+		  var shiftKey=false;
+		  keyCode=e.keyCode;
+		  shiftKey=e.shiftKey;
+		  if (((keyCode >= 65 && keyCode <= 90)&& !shiftKey) || ((keyCode >= 97 && keyCode <= 122) && shiftKey))
+		  {
+			  $('#inputPassword').tooltip('show');
+			  return;
+		  }
 	}
+	
+//	enterSearch = function() {
+//		var evt_code = (window.netscape) ? ev.which : event.keyCode;
+//		if (evt_code == 13) {    
+//			event.keyCode = 0;
+//			getAddrLoc(); 
+//		} 
+//	}
 })(jQuery);
